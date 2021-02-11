@@ -1,0 +1,23 @@
+<div class="section right"><!--Book of the day -->
+                    <div class="gr_custom_container_1588895837">
+                        <h2 class="gr_custom_header_1588895837">Book of the Day</h2>
+    <div class="gr_custom_each_container_1588895837">
+              <div class="gr_custom_book_container_1588895837">
+                <a title="How It Feels to Float" rel="nofollow" href="https://www.goodreads.com/book/show/44007280-how-it-feels-to-float"><img alt="How It Feels to Float" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550443011l/44007280._SX98_.jpg"></a>
+              </div>
+              <div class="gr_custom_title_1588895837">
+                <a rel="nofollow" href="https://www.goodreads.com/book/show/44007280-how-it-feels-to-float">How It Feels to Float</a>
+              </div>
+              <div class="gr_custom_author_1588895837">
+                by <a rel="nofollow" href="https://www.goodreads.com/author/show/18409901.Helena_Fox">Helena Fox</a>
+              </div>
+              <div>
+                  <p>Biz knows how to float. She has her posse, her mum and the twins. She has Grace. And she has her dad, who tells her about the little kid she was, and who shouldn't be here - because he died when she was seven - but is. So she doesn't tell anyone her dark thoughts. She knows how to float, right there on the surface - normal okay regular fine.
+
+But when the tethers that hold Biz steady come undone - when her dad disappears along with all comfort - might it be easier, better, sweeter to float away?
+
+This is a mesmerising, radiant debut. It's a story about love, grief, family and friendship, about intergenerational mental illness, and about how living with it is both a bridge and a chasm to the ones we've lost. Helena Fox explores the hard, bewildering and beautiful places loss can take us, and honours those who hold us tightly when the current wants to tug us out to sea.</p>
+              </div>
+          </div>
+                    </div>
+                </div>
