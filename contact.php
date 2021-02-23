@@ -1,7 +1,5 @@
 <?php
     include("connect.php");
-    $query = "SELECT * FROM `book_data` ORDER BY `book_name`";
-    $results = mysqli_query( $link, $query );
 ?>
 <!doctype html>
 <html lang="en">
