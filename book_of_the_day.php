@@ -20,7 +20,7 @@ if ($date != $last_opened){
         }
     }
     $record = mysqli_fetch_array($result);
-    $txt = '<div class="section right"><!--Book of the day -->
+    $txt = '<div class="col-12 section right"><!--Book of the day -->
                     <div class="gr_custom_container_1588895837">
                         <h2 class="gr_custom_header_1588895837">Book of the Day</h2>
     <div class="gr_custom_each_container_1588895837">

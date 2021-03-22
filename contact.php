@@ -5,6 +5,9 @@
 <html lang="en">
     <head id="head">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="normalize.css" rel="stylesheet" type="text/css">
+        <link href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="styles.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="imgs/book_stack.jpg">
         <title>Contact | Sam's Site</title>
