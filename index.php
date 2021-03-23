@@ -1,35 +1,14 @@
 <?php
-    include("connect.php");
-    include("book_of_the_day.php");
+    include ("connect.php");
+    include ("book_of_the_day.php");
     $query = "SELECT * FROM `book_data` ORDER BY `book_name`";
     $results = mysqli_query( $link, $query );
+    //page_top.php var setup
+    $page_title = "Home | Sam's Books";
+    $curPage  = 'Home';
+    $jsPaths = array('js/main.js');
+    require_once('page_top.php');
 ?>
-<!doctype html>
-<html lang="en">
-    <head id="head">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="normalize.css" rel="stylesheet" type="text/css">
-        <link href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="styles.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="imgs/book_stack.jpg">
-        <title>Home | Sam's Books</title>
-        <script src="jquery-3.5.0.js"></script>
-        <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
-        <script src="jquery.dataTables.js"></script>
-        <script src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js"></script>
-        <script src="main.js"></script>
-    </head>
-    <body>
-        <header id="header" class="col-12">
-        </header>
-        <nav class="col-12">
-            <a href="index.php" class="samePage">Home</a>
-            <a href="table.php">Table</a>
-            <a href="wishlist.php">Wishlist</a>
-            <a href="sources.php">Sources</a>
-            <a href="contact.php">Contact</a>
-        </nav>
         <div class="row">
             <div class="col-12 col-md-6"><!--Left-->
                 <section class="col-12"><!--Currently Reading-->
@@ -77,8 +56,6 @@
             </div>
         </div>
 
-        <footer>
-            <a href="sources.php">© Sam</a>
-        </footer>
-    </body>
-</html>
+<?php
+include ("page_bottom.php");
+?>

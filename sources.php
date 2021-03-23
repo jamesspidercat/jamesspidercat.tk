@@ -1,29 +1,10 @@
-<!doctype html>
-<html lang="en">
-    <head id="head">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="normalize.css" rel="stylesheet" type="text/css">
-        <link href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="styles.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="imgs/book_stack.jpg">
-        <title>Sources | Sam's Books</title>
-        <script src="jquery-3.5.0.js"></script>
-        <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
-        <script src="jquery.dataTables.js"></script>
-        <link href="toggle-switch.css" rel="stylesheet">
-        <script src="main.js"></script>
-    </head>
-    <body>
-        <header id="header">
-        </header>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="table.php">Table</a>
-            <a href="wishlist.php">Wishlist</a>
-            <a href="sources.php" class="samePage">Sources</a>
-            <a href="contact.php">Contact</a>
-        </nav>
+<?php
+//page_top.php var setup
+$page_title = "Sources | Sam's Books";
+$curPage  = "Sources";
+$jsPaths = array('js/main.js');
+require_once('page_top.php');
+?>
         <div>
             <a class="source" href="http://clipart-library.com/clipart/887865.htm"><img src="imgs/book_stack.jpg" height="100" alt="Title Icon" />Title Icon</a>
             <br>
@@ -50,8 +31,6 @@
             </label>
             <a class="source" href="https://ghinda.net/css-toggle-switch/">This Site uses CSS Toggle Switch by Ionuț Colceriu</a>
         </div>
-        <footer>
-            <a href="sources.php">© Sam</a>
-        </footer>
-    </body>
-</html>
+<?php
+include ("page_bottom.php");
+?>

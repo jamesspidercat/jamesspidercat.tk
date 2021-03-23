@@ -1,49 +1,11 @@
 <?php
-    include("connect.php");
+include("connect.php");
+//page_top.php var setup
+$page_title = "Contact | Sam's Books";
+$curPage  = "Contact";
+$jsPaths = array('js/main.js','contact.js');
+require_once('page_top.php');
 ?>
-<!doctype html>
-<html lang="en">
-    <head id="head">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="normalize.css" rel="stylesheet" type="text/css">
-        <link href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="styles.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="imgs/book_stack.jpg">
-        <title>Contact | Sam's Site</title>
-        <script src="jquery-3.5.0.js"></script>
-        <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
-        <script src="jquery.dataTables.js"></script>
-        <script src="main.js"></script>
-        <script>
-            function resubmit(y){
-                sessionStorage.setItem('error', y);
-                history.go(-1);
-                
-            }
-            window.onload = function() {
-                var error = sessionStorage.getItem("error");
-                var wow = document.getElementById('error');
-                if (error !== null){
-                    sessionStorage.removeItem('error');
-                    wow.innerHTML = error;
-                }else{
-                    wow.innerHTML = '';
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <header id="header">
-        </header>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="table.php">Table</a>
-            <a href="wishlist.php">Wishlist</a>
-            <a href="sources.php">Sources</a>
-            <a href="contact.php" class="samePage">Contact</a>
-        </nav>
-        
         <form name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 <table>
 <tr>
@@ -153,8 +115,6 @@ if(isset($_POST['email'])) {
 }
 ?>
 </form>
-        <footer>
-            <a href="sources.php">© Sam</a>
-        </footer>
-    </body>
-</html>
+<?php
+include ("page_bottom.php");
+?>

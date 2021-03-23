@@ -1,0 +1,9 @@
+header{
+    background-image: url(../imgs/sams_books_pride.png);
+}
+#loader{
+    border-top-color: #9b4f96;
+    border-left-color: #d60270;
+    border-bottom-color: #9b4f96;
+    border-right-color: #0038a8;
+}
