@@ -3,7 +3,7 @@ include("connect.php");
 //page_top.php var setup
 $page_title = "Contact | Sam's Books";
 $curPage  = "Contact";
-$jsPaths = array('js/main.js','contact.js');
+$jsPaths = array('js/main.js','js/contact.js');
 require_once('page_top.php');
 ?>
         <form name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
