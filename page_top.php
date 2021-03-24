@@ -13,7 +13,7 @@ require_once('page_top.php');
     <head id="head">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="normalize.css" rel="stylesheet" type="text/css">
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
         <link href="bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/toggle-switch.css" rel="stylesheet" type="text/css">
         <link href="css/styles.css" rel="stylesheet" type="text/css">
