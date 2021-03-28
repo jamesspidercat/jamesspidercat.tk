@@ -27,6 +27,7 @@ require_once('page_top.php');
         <link rel="stylesheet" type="text/css" href="jquery/jquery.dataTables.css">
         <script src="jquery/jquery.dataTables.js"></script>
         <script src="bootstrap/bootstrap.bundle.js"></script>
+        <script src="bootstrap/masonry.pkgd.min.js"></script>
         <?php
             foreach($jsPaths as $i){
                 print ("<script src=\"".$i."\"></script>");
