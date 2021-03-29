@@ -3,10 +3,44 @@ include("connect.php");
 //page_top.php var setup
 $page_title = "Contact | Sam's Books";
 $curPage  = "Contact";
-$jsPaths = array('js/main.js','js/contact.js');
+$jsPaths = array('js/main.js');
 require_once('page_top.php');
+echo $_POST['email'];
+echo $_POST['name'];
+echo $_POST['contact_reason'];
+echo $_POST['comments'];
 ?>
-        <form name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+		<form class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+			<div class="col-12">
+				<label for="name" class="form-label">Name</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
+			</div>
+			<div class="col-12">
+					<label for="email" class="form-label">Email</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
+			</div>
+			<div class="col-12">
+				<label for="contact_reason" class="form-label">State</label>
+				<select class="form-select" id="contact_reason" name="contact_reason" required>
+				<option selected disabled value="">Choose...</option>
+				<option value="Problem With Site">Problem With Site</option>
+				<option value="Problem With Database">Problem With Database</option>
+				<option value="Questions">Questions</option>
+				<option value="Anonymous Death Threat">Anonymous Death Threats</option>
+				<option value="Other">Other</option>
+				</select>
+			</div>
+			<div class="col-12">
+				<label for=comments" class="form-label">Comments</label>
+				<input type="text" class="form-control" id="comments" name="comments" required>
+			</div>
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit">Submit</button>
+			</div>
+				<!--
+			</form>
+		</div>
+	     <form name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 <table>
 <tr>
  <td>
@@ -52,19 +86,18 @@ require_once('page_top.php');
  </td>
 </tr>
 </table>
-<p id="error"></p>
-<?php //Send email
-if(isset($_POST['email'])) {
+-->
+</form>
+<?php
+include ("page_bottom.php");
+//Send email
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $email_to = "jamesspidercat@gmail.com";
     $email_subject = "Book Site Feedback";
  
     function died($error) {
-        $error_full = "We are very sorry, but there were error(s) found with the form you submitted. These errors appear below.<br /><br />".$error."<br /><br />Please fix these errors and resubmit the form.<br /><br />";
-        echo 
-'<script>
-    resubmit("'.$error_full.'");
-</script>';
+		echo $error;
         die();
     }
  
@@ -75,24 +108,10 @@ if(isset($_POST['email'])) {
         !isset($_POST['comments'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
-    $name = $_POST['name']; // required
-    $email_from = $_POST['email']; // required
-    $comments = $_POST['comments']; // required
+    $name = $_POST['name'];
+    $email_from = $_POST['email']; 
+    $comments = $_POST['comments']; 
     $contact_reason = $_POST['contact_reason'];
- 
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
- 
-  if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'The Email Address you entered does not appear to be valid.<br/>';
-  }
-  if(strlen($comments) < 2) {
-    $error_message .= 'The Comments you entered do not appear to be valid.<br/>';
-  }
- 
-    if(strlen($error_message) > 0) {
-    died($error_message);
-    }
     $email_message = "\n\n";
  
     function clean_string($string) {
@@ -107,14 +126,12 @@ if(isset($_POST['email'])) {
     $headers = 'From: '.$email_from."\r\n".'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
     $retval = mail($email_to, $email_subject, $email_message, $headers); 
     if( $retval == true ) {
-        echo "Message sent successfully...";
+        echo "Message sent successfully";
         die();
     }else{
-        echo '<script>resubmit("Message could not be sent...");</script>';
+        echo 'Message could not be sent...';
     }
+}else{
+	echo "no post data";
 }
-?>
-</form>
-<?php
-include ("page_bottom.php");
 ?>
