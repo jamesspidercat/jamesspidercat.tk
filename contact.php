@@ -33,57 +33,7 @@ require_once('page_top.php');
 			<div class="col-12">
 				<button class="btn btn-primary" type="submit">Submit</button>
 			</div>
-				<!--
-			</form>
-		</div>
-	     <form name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-<table>
-<tr>
- <td>
-  <label for="name">Name *</label>
- </td>
- <td>
-  <input  type="text" name="name" id='name' maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td>
-  <label for="email">Email Address *</label>
- </td>
- <td>
-  <input  type="text" name="email" id="email" maxlength="80" size="30">
- </td>
-</tr>
-<tr>
- <td>
-  <label for="contact_reason">Reason for contacting *</label>
- </td>
- <td>
-<select id="contact_reason" name="contact_reason">
-    <option value="Problem With Site">Problem With Site</option>
-    <option value="Problem With Database">Problem With Database</option>
-    <option value="Questions">Questions</option>
-    <option value="Anonymous Death Threat">Anonymous Death Threats</option>
-    <option value="Other">Other</option>
-</select>
- </td>
-</tr>
-<tr>
- <td>
-  <label for="comments">Comments *</label>
- </td>
- <td>
-  <textarea  name="comments" id="comments" maxlength="1000" cols="25" rows="6"></textarea>
- </td>
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">
- </td>
-</tr>
-</table>
--->
-</form>
+		</form>
 <?php
 include ("page_bottom.php");
 //Send email
@@ -131,7 +81,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }else{
         echo 'Message could not be sent...';
     }
-}else{
-	echo "no post data";
 }
 ?>
