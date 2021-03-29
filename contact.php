@@ -5,10 +5,6 @@ $page_title = "Contact | Sam's Books";
 $curPage  = "Contact";
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
-echo $_POST['email'];
-echo $_POST['name'];
-echo $_POST['contact_reason'];
-echo $_POST['comments'];
 ?>
 		<form class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
 			<div class="col-12">
@@ -112,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $email_from = $_POST['email']; 
     $comments = $_POST['comments']; 
     $contact_reason = $_POST['contact_reason'];
-    $email_message = "\n\n";
+    $email_message = "\n\n\n";
  
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
@@ -124,6 +120,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $email_message .= "Comments: ".clean_string($comments)."\n";
 // create email headers
     $headers = 'From: '.$email_from."\r\n".'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
+	$myfile = fopen("new_mail.txt", "a") or die("Unable to open file");
+	$mail_content = $email_message;
+    fwrite($myfile, $mail_content);
+    fclose($myfile);
     $retval = mail($email_to, $email_subject, $email_message, $headers); 
     if( $retval == true ) {
         echo "Message sent successfully";
