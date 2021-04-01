@@ -69,10 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $email_message .= "Comments: ".clean_string($comments)."\n";
 // create email headers
     $headers = 'From: '.$email_from."\r\n".'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
+//write email to file as backup
 	$myfile = fopen("new_mail.txt", "a") or die("Unable to open file");
 	$mail_content = $email_message;
     fwrite($myfile, $mail_content);
     fclose($myfile);
+//send email
     $retval = mail($email_to, $email_subject, $email_message, $headers); 
     if( $retval == true ) {
         echo "Message sent successfully";
