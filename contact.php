@@ -35,7 +35,6 @@ require_once('page_top.php');
 			</div>
 		</form>
 <?php
-include ("page_bottom.php");
 //Send email
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
@@ -46,8 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		echo $error;
         die();
     }
- 
- 
+
     // validation expected data exists
     if(!isset($_POST['name']) ||
         !isset($_POST['email']) ||
@@ -82,4 +80,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo 'Message could not be sent...';
     }
 }
+include ("page_bottom.php");
 ?>
