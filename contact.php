@@ -6,6 +6,11 @@ $curPage  = "Contact";
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 ?>
+		<script>//stops resubmition on page reload
+			if ( window.history.replaceState ) {
+				window.history.replaceState( null, null, window.location.href );
+			}
+		</script>
 		<form style="margin-left: 10px;width: 90%;"" class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
 			<div class="col-12">
 				<label for="name" class="form-label">Name</label>
