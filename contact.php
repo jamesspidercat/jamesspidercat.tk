@@ -6,7 +6,7 @@ $curPage  = "Contact";
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 ?>
-		<form class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+		<form style="margin-left: 10px;width: 90%;"" class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
 			<div class="col-12">
 				<label for="name" class="form-label">Name</label>
 				<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
@@ -16,7 +16,7 @@ require_once('page_top.php');
 					<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
 			</div>
 			<div class="col-12">
-				<label for="contact_reason" class="form-label">State</label>
+				<label for="contact_reason" class="form-label">Contact Reason</label>
 				<select class="form-select" id="contact_reason" name="contact_reason" required>
 				<option selected disabled value="">Choose...</option>
 				<option value="Problem With Site">Problem With Site</option>
@@ -28,12 +28,13 @@ require_once('page_top.php');
 			</div>
 			<div class="col-12">
 				<label for=comments" class="form-label">Comments</label>
-				<input type="text" class="form-control" id="comments" name="comments" required>
+				<textarea style="margin-bottom: 10px;height: 200px;" class="form-control" id="comments" name="comments" required></textarea>
 			</div>
 			<div class="col-12">
 				<button class="btn btn-primary" type="submit">Submit</button>
 			</div>
 		</form>
+		<p style="color: white;">
 <?php
 //Send email
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -80,5 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo 'Message could not be sent...';
     }
 }
+?>
+		</p>
+<?php
 include ("page_bottom.php");
 ?>
