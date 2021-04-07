@@ -11,35 +11,38 @@ require_once('page_top.php');
 				window.history.replaceState( null, null, window.location.href );
 			}
 		</script>
-		<form style="margin-left: 10px;width: 90%;"" class="row" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
-			<div class="col-12">
-				<label for="name" class="form-label">Name</label>
-				<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
-			</div>
-			<div class="col-12">
-					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
-			</div>
-			<div class="col-12">
-				<label for="contact_reason" class="form-label">Contact Reason</label>
-				<select class="form-select" id="contact_reason" name="contact_reason" required>
-				<option selected disabled value="">Choose...</option>
-				<option value="Problem With Site">Problem With Site</option>
-				<option value="Problem With Database">Problem With Database</option>
-				<option value="Questions">Questions</option>
-				<option value="Anonymous Death Threat">Anonymous Death Threats</option>
-				<option value="Other">Other</option>
-				</select>
-			</div>
-			<div class="col-12">
-				<label for=comments" class="form-label">Comments</label>
-				<textarea style="margin-bottom: 10px;height: 200px;" class="form-control" id="comments" name="comments" required></textarea>
-			</div>
-			<div class="col-12">
-				<button class="btn btn-primary" type="submit">Submit</button>
-			</div>
-		</form>
-		<p style="color: white;">
+		<div class="row" style="margin-left: 10px;">
+			<form class="col-9" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+				<div>
+					<label for="name" class="form-label">Name</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
+				</div>
+				<div>
+						<label for="email" class="form-label">Email</label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
+				</div>
+				<div>
+					<label for="contact_reason" class="form-label">Contact Reason</label>
+					<select class="form-select" id="contact_reason" name="contact_reason" required>
+					<option selected disabled value="">Choose...</option>
+					<option value="Problem With Site">Problem With Site</option>
+					<option value="Problem With Database">Problem With Database</option>
+					<option value="Questions">Questions</option>
+					<option value="Anonymous Death Threat">Anonymous Death Threats</option>
+					<option value="Other">Other</option>
+					</select>
+				</div>
+				<div>
+					<label for=comments" class="form-label">Comments</label>
+					<textarea style="margin-bottom: 10px;height: 200px;" class="form-control" id="comments" name="comments" required></textarea>
+				</div>
+				<div>
+					<button class="btn btn-primary" type="submit">Submit</button>
+				</div>
+			</form>
+			<aside class="col-3 text-white">Found an issue with my site?<br>You can also contact me by submiting a <a href="https://github.com/jamesspidercat/jamesspidercat.tk/issues/new" target="_blank">Github issue report</a></aside>
+		</div>
+		<p class="text-white">
 <?php
 //Send email
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
