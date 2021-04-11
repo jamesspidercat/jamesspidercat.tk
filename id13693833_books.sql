@@ -2,8 +2,8 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 11, 2021 at 01:43 AM
+-- Host: localhost
+-- Generation Time: Apr 11, 2021 at 11:31 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.23
 
@@ -1097,7 +1097,7 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (1347, 'FCBD: Guardians Of The Galaxy (Guardians of the Galaxy (2013-2015))', 'Brian Michael Bendis', NULL, 'Guardians of the Galaxy', 'Comic', NULL, 'Digital', 'Kindle,Comixology', NULL),
 (1348, 'FCBD 2017: Secret Empire #1 (Secret Empire (2017))', 'Nick Spencer', 1.000, 'Secret Empire', 'Comic', NULL, 'Digital', 'Kindle', NULL),
 (1349, 'FCBD 2015: Secret Wars #0 (Secret Wars (2015-2016))', 'Jonathan Hickman', 0.000, 'Secret Wars', 'Comic', '3867', 'Digital', 'Kindle,Comixology', NULL),
-(1350, 'Marvel\'s Jessica Jones #1', 'Brian Michael Bendis', 1.000, 'Marvel\'s Jessica Jones', 'Comic', NULL, 'Digital', 'Kindle', NULL),
+(1350, 'Marvel\'s Jessica Jones #1', 'Brian Michael Bendis', 1.000, 'Marvel\'s Jessica Jones', 'Comic', NULL, 'Digital', 'Kindle,Comixology', NULL),
 (1351, 'Red Sonja Vol. 4 #0', 'Amy Chu', 0.000, 'Red Sonja Vol. 4', 'Comic', NULL, 'Digital', 'Kindle,Comixology', NULL),
 (1352, 'Valiant 2012: FCBD (Valiant 2012: Free Previews!)', 'Robert Venditti', NULL, NULL, 'Comic', NULL, 'Digital', 'Kindle,Comixology', NULL),
 (1353, 'Free Comic Book Day 2014: All Ages #4 (Dark Horse FCBD)', 'Art Baltazar', NULL, NULL, 'Comic', NULL, 'Digital', 'Kindle,Comixology', NULL),
@@ -2294,7 +2294,6 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (2568, 'Marvel Rising (2018) #0', 'Devin Grayson', 0.000, 'Marvel Rising (2018)', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2569, 'Marvel Team-Up (2019) #1', 'Eve Ewing', 1.000, 'Marvel Team-Up (2019)', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2570, 'Marvel Universe Hulk: Agents Of S.M.A.S.H. (2013-2014) #1', 'Paul Dini', 1.000, 'Marvel Universe Hulk: Agents Of S.M.A.S.H. (2013-2014)', 'Comic', NULL, 'Digital', 'Comixology', NULL),
-(2571, 'Marvel\'s Jessica Jones #1', 'Brian Michael Bendis', 1.000, 'Marvel\'s Jessica Jones', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2572, 'The Marvels Project #1', 'Ed Brubaker', 1.000, 'The Marvels Project', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2573, 'Masks #1', 'Chris Roberson', 1.000, 'Masks', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2574, 'Maxwell\'s Demons #1', 'Deniz Camp', 1.000, 'Maxwell\'s Demons', 'Comic', NULL, 'Digital', 'Comixology', NULL),
@@ -2348,9 +2347,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (2622, 'The Origin of Gorilla Grodd', 'Scott Beatty', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2623, 'The Origin of Harley Quinn', 'Scott Beatty', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2624, 'The Origin of Hawkman and Hawkgirl', 'Mark Waid', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL),
-(2625, 'The Origin of Red Tornado', 'Mark Waid', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL);
+(2625, 'The Origin of Red Tornado', 'Mark Waid', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL),
+(2626, 'The Origin of the Justice League of America', 'Mark Waid', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(2626, 'The Origin of the Justice League of America', 'Mark Waid', NULL, NULL, 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2627, 'Oz: The Manga #1', 'L. Frank Baum', 1.000, 'Oz: The Manga', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2628, 'The Pack #0', 'Mike Raicht', 0.000, 'The Pack', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (2629, 'Painkiller Jane (2007) #0', 'Jimmy Palmiotti, Joe Quesada', 0.000, 'Painkiller Jane (2007)', 'Comic', NULL, 'Digital', 'Comixology', NULL),
@@ -2723,9 +2722,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (2996, 'Captain America (2004-2011) #11', 'Ed Brubaker', 11.000, 'Captain America (2005)', 'Comic', '2912', 'Digital', 'Comixology', NULL),
 (2997, 'Captain America (2004-2011) #12', 'Ed Brubaker', 12.000, 'Captain America (2005)', 'Comic', '2912', 'Digital', 'Comixology', NULL),
 (2998, 'Captain America (2004-2011) #13', 'Ed Brubaker', 13.000, 'Captain America (2005)', 'Comic', '2912', 'Digital', 'Comixology', NULL),
-(2999, 'Captain America (2004-2011) #14', 'Ed Brubaker', 14.000, 'Captain America (2005)', 'Comic', '2912', 'Digital', 'Comixology', NULL);
+(2999, 'Captain America (2004-2011) #14', 'Ed Brubaker', 14.000, 'Captain America (2005)', 'Comic', '2912', 'Digital', 'Comixology', NULL),
+(3000, 'Captain Marvel (2014-2015) #1', 'Kelly Sue DeConnick', 1.000, 'Captain Marvel (2014)', 'Comic', '2913', 'Digital', 'Comixology', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(3000, 'Captain Marvel (2014-2015) #1', 'Kelly Sue DeConnick', 1.000, 'Captain Marvel (2014)', 'Comic', '2913', 'Digital', 'Comixology', NULL),
 (3001, 'Captain Marvel (2014-2015) #2', 'Kelly Sue DeConnick', 2.000, 'Captain Marvel (2014)', 'Comic', '2913', 'Digital', 'Comixology', NULL),
 (3002, 'Captain Marvel (2014-2015) #3', 'Kelly Sue DeConnick', 3.000, 'Captain Marvel (2014)', 'Comic', '2913', 'Digital', 'Comixology', NULL),
 (3003, 'Captain Marvel (2014-2015) #4', 'Kelly Sue DeConnick', 4.000, 'Captain Marvel (2014)', 'Comic', '2913', 'Digital', 'Comixology', NULL),
@@ -3096,9 +3095,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (3368, 'Dungeons & Dragons #2', 'John Rogers', 2.000, 'John Rogers Dungeons & Dragons', 'Comic', '874', 'Digital', 'Humble_Bundle', NULL),
 (3369, 'Dungeons & Dragons #3', 'John Rogers', 3.000, 'John Rogers Dungeons & Dragons', 'Comic', '874', 'Digital', 'Humble_Bundle', NULL),
 (3370, 'Dungeons & Dragons #4', 'John Rogers', 4.000, 'John Rogers Dungeons & Dragons', 'Comic', '874', 'Digital', 'Humble_Bundle', NULL),
-(3371, 'Dungeons & Dragons #5', 'John Rogers', 5.000, 'John Rogers Dungeons & Dragons', 'Comic', '874', 'Digital', 'Humble_Bundle', NULL);
+(3371, 'Dungeons & Dragons #5', 'John Rogers', 5.000, 'John Rogers Dungeons & Dragons', 'Comic', '874', 'Digital', 'Humble_Bundle', NULL),
+(3372, 'Dungeons & Dragons #6', 'John Rogers', 6.000, 'John Rogers Dungeons & Dragons', 'Comic', '875', 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(3372, 'Dungeons & Dragons #6', 'John Rogers', 6.000, 'John Rogers Dungeons & Dragons', 'Comic', '875', 'Digital', 'Humble_Bundle', NULL),
 (3373, 'Dungeons & Dragons #7', 'John Rogers', 7.000, 'John Rogers Dungeons & Dragons', 'Comic', '875', 'Digital', 'Humble_Bundle', NULL),
 (3374, 'Dungeons & Dragons #8', 'John Rogers', 8.000, 'John Rogers Dungeons & Dragons', 'Comic', '875', 'Digital', 'Humble_Bundle', NULL),
 (3375, 'Dungeons & Dragons #9', 'John Rogers', 9.000, 'John Rogers Dungeons & Dragons', 'Comic', '875', 'Digital', 'Humble_Bundle', NULL),
@@ -3452,9 +3451,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (3723, 'G.I. Joe: Classics #5', 'Larry Hama', 5.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
 (3724, 'G.I. Joe: Classics #6', 'Larry Hama', 6.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
 (3725, 'G.I. Joe: Classics #7', 'Larry Hama', 7.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
-(3726, 'G.I. Joe: Classics #8', 'Larry Hama', 8.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL);
+(3726, 'G.I. Joe: Classics #8', 'Larry Hama', 8.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
+(3727, 'G.I. Joe: Classics #9', 'Larry Hama', 9.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(3727, 'G.I. Joe: Classics #9', 'Larry Hama', 9.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
 (3728, 'G.I. Joe: Classics #10', 'Larry Hama', 10.000, 'G.I. Joe: Classics', 'Comic', '914', 'Digital', 'Humble_Bundle', NULL),
 (3729, 'Jem and the Holograms #1', 'Kelly Thompson', 1.000, 'Jem and the Holograms', 'Comic', '918', 'Digital', 'Humble_Bundle', NULL),
 (3730, 'Jem and the Holograms #2', 'Kelly Thompson', 2.000, 'Jem and the Holograms', 'Comic', '918', 'Digital', 'Humble_Bundle', NULL),
@@ -3810,9 +3809,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (4082, 'Shadow Show: Stories In Celebration of Ray Bradbury #3', 'Harlan Ellison', 3.000, 'Shadow Show: Stories In Celebration of Ray Bradbury', 'Comic', '4067', 'Digital', 'Humble_Bundle', NULL),
 (4083, 'Shadow Show: Stories In Celebration of Ray Bradbury #4', 'Dave Eggers', 4.000, 'Shadow Show: Stories In Celebration of Ray Bradbury', 'Comic', '4067', 'Digital', 'Humble_Bundle', NULL),
 (4084, 'Shadow Show: Stories In Celebration of Ray Bradbury #5', 'Alice Hoffman', 5.000, 'Shadow Show: Stories In Celebration of Ray Bradbury', 'Comic', '4067', 'Digital', 'Humble_Bundle', NULL),
-(4085, 'Road Rage #1', 'Joe Hill, Stephen King', 1.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL);
+(4085, 'Road Rage #1', 'Joe Hill, Stephen King', 1.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL),
+(4086, 'Road Rage #2', 'Joe Hill, Stephen King', 2.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(4086, 'Road Rage #2', 'Joe Hill, Stephen King', 2.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL),
 (4087, 'Road Rage #3', 'Richard Matheson', 3.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL),
 (4088, 'Road Rage #4', 'Richard Matheson, Chris Ryall', 4.000, 'Road Rage', 'Comic', '4068', 'Digital', 'Humble_Bundle', NULL),
 (4089, 'Joe Hill\'s The Cape: (One-Shot)', 'Joe Hill', NULL, 'Joe Hill\'s The Cape', 'Comic', '4069', 'Digital', 'Humble_Bundle', NULL),
@@ -4163,9 +4162,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (4435, 'Fight Club 3 #1', 'Chuck Palahniuk', 1.000, 'Fight Club 3', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (4436, 'Frankenstein Underground #1', 'Mike Mignola', 1.000, 'Frankenstein Underground', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (4437, 'Ghost: In The Smoke and Din #0', 'Kelly Sue DeConnick', 0.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL),
-(4438, 'Ghost: In The Smoke and Din #1', 'Kelly Sue DeConnick', 1.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL);
+(4438, 'Ghost: In The Smoke and Din #1', 'Kelly Sue DeConnick', 1.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL),
+(4439, 'Ghost: In The Smoke and Din #2', 'Kelly Sue DeConnick', 2.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(4439, 'Ghost: In The Smoke and Din #2', 'Kelly Sue DeConnick', 2.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (4440, 'Ghost: In The Smoke and Din #3', 'Kelly Sue DeConnick', 3.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (4441, 'Ghost: In The Smoke and Din #4', 'Kelly Sue DeConnick', 4.000, 'Ghost: In The Smoke and Din', 'Comic', NULL, 'Digital', 'Comixology', NULL),
 (4442, 'Ghost #1', 'Eric Luke', 1.000, 'Ghost', 'Comic', '4348', 'Digital', 'Comixology', NULL),
@@ -4543,9 +4542,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (4814, 'Dream Student', 'J.J. DiBendetto', 1.000, 'Dream', 'Prose', '4803', 'Digital', 'Kindle', NULL),
 (4815, 'Deception', 'Stacy Claflin', 1.000, 'The Transformed', 'Prose', '4803', 'Digital', 'Kindle', NULL),
 (4816, 'The Black Parade', 'Kyoko M.', 1.000, 'The Black Parade', 'Prose', '4803', 'Digital', 'Kindle', NULL),
-(4817, 'The Thought Readers', 'Dima Zales', 1.000, 'Mind Dimensions', 'Prose', '4803', 'Digital', 'Kindle', NULL);
+(4817, 'The Thought Readers', 'Dima Zales', 1.000, 'Mind Dimensions', 'Prose', '4803', 'Digital', 'Kindle', NULL),
+(4818, 'We Can\'t Talk about That at Work', 'Mary-Frances Winters', NULL, NULL, 'Prose', NULL, 'Digital,Audio', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(4818, 'We Can\'t Talk about That at Work', 'Mary-Frances Winters', NULL, NULL, 'Prose', NULL, 'Digital,Audio', 'Humble_Bundle', NULL),
 (4819, 'The Sisters Are Alright: Changing the Broken Narrative of Black Women in America', 'Tamara Winfrey Harris', NULL, NULL, 'Prose', NULL, 'Digital,Audio', 'Humble_Bundle', NULL),
 (4820, 'Decolonizing Wealth', 'Edgar Villanueva', NULL, NULL, 'Prose', NULL, 'Digital,Audio', 'Humble_Bundle', NULL),
 (4821, 'The Body Is Not an Apology', 'Sonya Renee Taylor', NULL, NULL, 'Prose', NULL, 'Digital,Audio', 'Humble_Bundle', NULL),
@@ -4922,9 +4921,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (5200, 'Zenith Book One: Tygers', 'Grant Morrison', 1.000, 'Zenith', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
 (5201, 'Zenith: Book 2', 'Grant Morrison', 2.000, 'Zenith', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
 (5202, 'Zenith: Book 3', 'Grant Morrison', 3.000, 'Zenith', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
-(5203, 'Zenith: Book 4', 'Grant Morrison', 4.000, 'Zenith', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL);
+(5203, 'Zenith: Book 4', 'Grant Morrison', 4.000, 'Zenith', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
+(5204, 'Judge Dredd: The Complete Case Files 01', 'John Wagner', 1.000, 'Judge Dredd: The Complete Case Files', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(5204, 'Judge Dredd: The Complete Case Files 01', 'John Wagner', 1.000, 'Judge Dredd: The Complete Case Files', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
 (5205, 'Judge Dredd: The Complete Case Files 02', 'John Wagner', 2.000, 'Judge Dredd: The Complete Case Files', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
 (5206, 'Judge Dredd: The Complete Case Files 03', 'John Wagner', 3.000, 'Judge Dredd: The Complete Case Files', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
 (5207, 'Judge Dredd: The Complete Case Files 04', 'John Wagner', 4.000, 'Judge Dredd: The Complete Case Files', 'Comic', NULL, 'Digital', 'Humble_Bundle', NULL),
@@ -5299,9 +5298,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (5576, 'Black Science #13', 'Rick Remender', 13.000, 'Black Science', 'Comic', '5303', 'Digital', 'Humble_Bundle', NULL),
 (5577, 'Black Science #14', 'Rick Remender', 14.000, 'Black Science', 'Comic', '5303', 'Digital', 'Humble_Bundle', NULL),
 (5578, 'Black Science #15', 'Rick Remender', 15.000, 'Black Science', 'Comic', '5303', 'Digital', 'Humble_Bundle', NULL),
-(5579, 'Black Science #16', 'Rick Remender', 16.000, 'Black Science', 'Comic', '5303', 'Digital', 'Humble_Bundle', NULL);
+(5579, 'Black Science #16', 'Rick Remender', 16.000, 'Black Science', 'Comic', '5303', 'Digital', 'Humble_Bundle', NULL),
+(5580, 'Black Science #17', 'Rick Remender', 17.000, 'Black Science', 'Comic', '5304', 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(5580, 'Black Science #17', 'Rick Remender', 17.000, 'Black Science', 'Comic', '5304', 'Digital', 'Humble_Bundle', NULL),
 (5581, 'Black Science #18', 'Rick Remender', 18.000, 'Black Science', 'Comic', '5304', 'Digital', 'Humble_Bundle', NULL),
 (5582, 'Black Science #19', 'Rick Remender', 19.000, 'Black Science', 'Comic', '5304', 'Digital', 'Humble_Bundle', NULL),
 (5583, 'Black Science #20', 'Rick Remender', 20.000, 'Black Science', 'Comic', '5304', 'Digital', 'Humble_Bundle', NULL),
@@ -5718,9 +5717,9 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (5994, 'The Wicked + The Divine #41', 'Kieron Gillen', 41.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL),
 (5995, 'The Wicked + The Divine #42', 'Kieron Gillen', 42.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL),
 (5996, 'The Wicked + The Divine #43', 'Kieron Gillen', 43.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL),
-(5997, 'The Wicked + The Divine #44', 'Kieron Gillen', 44.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL);
+(5997, 'The Wicked + The Divine #44', 'Kieron Gillen', 44.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL),
+(5998, 'The Wicked + The Divine #45', 'Kieron Gillen', 45.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL);
 INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_name`, `book_type`, `collected_in`, `format`, `owned`, `notes`) VALUES
-(5998, 'The Wicked + The Divine #45', 'Kieron Gillen', 45.000, 'The Wicked + The Divine', 'Comic', '5937', 'Digital', 'Humble_Bundle', NULL),
 (5999, 'The Wicked + The Divine: 455 AD', 'Kieron Gillen', NULL, 'The Wicked + The Divine', 'Comic', '5936', 'Digital', 'Humble_Bundle', NULL),
 (6000, 'The Wicked + The Divine: 1923', 'Kieron Gillen', NULL, 'The Wicked + The Divine', 'Comic', '5936', 'Digital', 'Humble_Bundle', NULL),
 (6001, 'The Wicked + The Divine: Christmas Annual #1', 'Kieron Gillen', NULL, 'The Wicked + The Divine', 'Comic', '5936', 'Digital', 'Humble_Bundle', NULL),
@@ -6708,7 +6707,11 @@ INSERT INTO `book_data` (`id`, `book_name`, `author`, `series_number`, `series_n
 (6982, 'Descender #32', 'Jeff Lemire', 32.000, 'Descender', 'Comic', '6,446', 'Digital', 'Humble_Bundle', NULL),
 (6983, 'Laurel & Hardy Classic Follies #1', 'S.A. Check', 1.000, 'Laurel & Hardy Classic Follies', 'Comic', NULL, 'Digital', 'Fanatical', NULL),
 (6984, 'Filbert Factor Rejected by Free Comic Book Day #1', 'Mike Wolfer', 1.000, 'Filbert Factor Rejected by Free Comic Book Day', 'Comic', NULL, 'Digital', 'Fanatical', NULL),
-(6985, 'Three Stooges Astro Nuts', 'S.A. Check', 11.000, 'The Three Stooges', 'Comic', NULL, 'Digital', 'Fanatical', NULL);
+(6985, 'Three Stooges Astro Nuts', 'S.A. Check', 11.000, 'The Three Stooges', 'Comic', NULL, 'Digital', 'Fanatical', NULL),
+(6986, 'The Weight of Them', 'Noelle Stevenson', NULL, NULL, 'Comic', NULL, 'Digital', 'Other', 'https://gumroad.com/l/tJzTV'),
+(6987, 'A Long Stay', 'View', NULL, NULL, 'Comic', NULL, 'Digital', 'Fanatical', NULL),
+(6988, 'Chrysanthemum Boy', 'Shino Matsuda', NULL, NULL, 'Comic', NULL, 'Digital', 'Fanatical', NULL),
+(6989, 'The Key In The Cage', 'Shino Matsuda', NULL, NULL, 'Comic', NULL, 'Digital', 'Fanatical', NULL);
 
 -- --------------------------------------------------------
 
@@ -6784,7 +6787,7 @@ INSERT INTO `wishlist` (`id`, `book_name`, `author`, `series_number`, `series_na
 (18, 'Cheshire Crossing', 'Andy Weir', NULL, NULL, 'Comic', 4, 0, NULL),
 (19, 'Iceman, Vol. 3: Amazing Friends', 'Sina Grace', 3.000, 'Iceman (Collected Editions)', 'Comic', 2, 0, NULL),
 (20, 'Infinity Son', 'Adam Silvera', 1.000, 'Infinity Cycle', 'Prose', 3, 0, NULL),
-(21, 'Empire of the Vampire', 'Jay Kristoff', 1.000, 'Empire of the Vampire', 'Prose', 4, 0, NULL),
+(21, 'Empire of the Vampire', 'Jay Kristoff', 1.000, 'Empire of the Vampire', 'Prose', 5, 0, NULL),
 (22, 'Egghead; or, You Can\'t Survive on Ideas Alone', 'Bo Burnham', NULL, NULL, 'Prose', 1, 0, NULL),
 (23, 'Little Monsters', 'Kara Thomas', NULL, NULL, 'Prose', 1, 1, NULL),
 (24, 'More Happy Than Not', 'Adam Silvera', NULL, NULL, 'Prose', 3, 0, NULL),
@@ -6818,7 +6821,6 @@ INSERT INTO `wishlist` (`id`, `book_name`, `author`, `series_number`, `series_na
 (57, 'Mooncop', 'Tom Gauld', NULL, NULL, 'Comic', 3, 0, NULL),
 (58, 'One Last Stop', 'Casey McQuiston', NULL, NULL, 'Prose', 5, 0, NULL),
 (59, 'Solutions and Other Problems', 'Allie Brosh', 2.000, NULL, 'Comic', 5, 0, NULL),
-(60, 'Empire of the Vampire', 'Jay Kristoff', 1.000, 'Empire of the Vampire', 'Prose', 5, 0, NULL),
 (61, 'The Desolations of Devil\'s Acre', 'Ransom Riggs', 6.000, 'Miss Peregrine\'s Peculiar Children', 'Prose', 5, 0, NULL),
 (62, 'Here\'s To Us', 'Becky Albertalli, Adam Silvera', 2.000, 'What If It\'s Us', 'Prose', 4, 0, NULL),
 (64, 'Basketful of Heads', 'Joe Hill', NULL, 'Basketful of Heads', 'Comic', 3, 0, NULL),
@@ -6856,7 +6858,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `book_data`
 --
 ALTER TABLE `book_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6986;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6990;
 
 --
 -- AUTO_INCREMENT for table `book_of_the_day`
