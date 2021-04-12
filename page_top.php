@@ -6,8 +6,21 @@ $curPage  = "thispage";
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 */
-?>
 
+require_once ('connect.php');
+session_name( 'userinfo' );
+session_start();
+
+if( isset( $_SESSION['uid'] ) && isset( $_SESSION['uname'] ) ) {
+    $id = $_SESSION['uid'];
+    $name = $_SESSION['uname'];
+
+    $logged_in = true;
+}
+else {
+    $logged_in = false;
+}
+?>
 <!doctype html>
 <html lang="en">
     <head id="head">
