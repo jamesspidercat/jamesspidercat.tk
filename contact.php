@@ -3,25 +3,20 @@ include("connect.php");
 //page_top.php var setup
 $page_title = "Contact | Sam's Books";
 $curPage  = "Contact";
-$jsPaths = array('js/main.js');
+$jsPaths = array('js/main.js','js/no_resubmit.js');
 require_once('page_top.php');
 ?>
-		<script>//stops resubmition on page reload
-			if ( window.history.replaceState ) {
-				window.history.replaceState( null, null, window.location.href );
-			}
-		</script>
 		<div class="row" style="margin-left: 10px;">
 			<form class="col-9" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
-				<div>
+				<div class="form-group">
 					<label for="name" class="form-label">Name</label>
 					<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
 				</div>
-				<div>
+				<div class="form-group">
 						<label for="email" class="form-label">Email</label>
 						<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="contact_reason" class="form-label">Contact Reason</label>
 					<select class="form-select" id="contact_reason" name="contact_reason" required>
 					<option selected disabled value="">Choose...</option>
@@ -32,11 +27,11 @@ require_once('page_top.php');
 					<option value="Other">Other</option>
 					</select>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for=comments" class="form-label">Comments</label>
 					<textarea style="margin-bottom: 10px;height: 200px;" class="form-control" id="comments" name="comments" required></textarea>
 				</div>
-				<div>
+				<div class="form-group">
 					<button class="btn btn-primary" type="submit">Submit</button>
 				</div>
 			</form>
