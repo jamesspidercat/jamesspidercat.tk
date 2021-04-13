@@ -16,7 +16,7 @@ require_once('page_top.php');
             <input name="password" class="form-control" type="password">
         </div>
         <div class="form-group">
-            <label><input type="checkbox"> Remember me</label>
+            <!--<label><input type="checkbox"> Remember me</label>-->
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary" value="Login">Submit</button>
@@ -27,5 +27,47 @@ require_once('page_top.php');
     </form>
 </div>
 <?php
+$username = $_POST['username'];
+$password = $_POST['password'];
+print '<p>Attempting to login user '.$username.'...';
+
+$statement = mysqli_prepare( $link, "SELECT user_id, name, pass_hash, pass_salt 
+                                     FROM users 
+                                     WHERE username=?");
+
+if( $statement ) {
+    mysqli_stmt_bind_param( $statement, 's', $username );
+    mysqli_stmt_execute( $statement );
+    mysqli_stmt_bind_result( $statement, $id ,$name, $hash, $salt );
+    if( mysqli_stmt_fetch( $statement ) ) {//check if account exists
+        if( hash( 'sha256', $password.$salt ) == $hash) {//password correct?
+            $_SESSION["uid"] = $id;
+            $_SESSION["uname"] = $name;
+            echo $_SESSION['uname'];
+
+
+            print '<script>
+                    alert( "Successful login!" );
+                    location = "index.php";
+                </script>';        
+        }
+        else {//incorrect password
+            print '<script>
+                    alert( "Incorrect password!" );
+                    location = "login.php";
+                </script>';        
+        }
+
+    }
+    else {//invalid username
+        print '<script>
+                    alert( "Username not found!" );
+                    location = "login.php";
+                </script>';
+    }
+    mysqli_stmt_close( $statement );
+}
+
+?>
 include ("page_bottom.php");
 ?>
