@@ -212,6 +212,9 @@ body{
     body {
       width: 80%;
     }
+    form.seperator{
+        border-left: 1px solid white;
+    }
   }
 footer{
     margin-bottom: 10px;
