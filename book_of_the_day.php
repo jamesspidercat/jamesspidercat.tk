@@ -1,24 +1,20 @@
 <?php
-$myfile = fopen("last_opened.txt", "r") or die("Unable to open file");
-$last_opened = fread($myfile,filesize("last_opened.txt"));
+$last_opened = null;
+if (is_file('last_opened.txt')){
+	$myfile = fopen("last_opened.txt", "r") or die("Unable to open file");
+	$last_opened = fread($myfile,filesize("last_opened.txt"));
+	fclose($myfile);
+}
 date_default_timezone_set("Pacific/Auckland");
 $date = date("m.d");
-if ($date != $last_opened){
-    fclose($myfile);
+if ($date != $last_opened || !is_file('last_opened.txt')){
     $myfile = fopen("last_opened.txt", "w") or die("Unable to open file");
     fwrite($myfile, $date);
     fclose($myfile);
     $myfile = fopen("book_of_the_day.txt", "w") or die("Unable to open file");
     include("connect.php");
-    $count = mysqli_num_rows(mysqli_query($link, 'SELECT * FROM book_of_the_day'));
-    while(true){
-        $rand = mt_rand(1,intval($count));
-        $query = "SELECT * FROM `book_of_the_day` WHERE `id` = '$rand'";
-        $result = mysqli_query( $link, $query );
-        if(mysqli_num_rows($result) == 1){
-            break;
-        }
-    }
+	$query = "SELECT * FROM `book_of_the_day` ORDER BY RAND() LIMIT 1";
+	$result = mysqli_query( $link, $query );
     $record = mysqli_fetch_array($result);
     $txt = '<div class="col-12 col-sm-6"><!--Book of the day -->
                     <div class="gr_custom_container_1588895837">
@@ -40,6 +36,6 @@ if ($date != $last_opened){
                     </div>
                 </div>';
     fwrite($myfile, $txt);
+	fclose($myfile);
 }
-fclose($myfile);
 ?>
