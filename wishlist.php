@@ -1,12 +1,13 @@
 <?php
-include("connect.php");
-$query = "SELECT * FROM `wishlist` ORDER BY `book_name`";
-$results = mysqli_query( $link, $query );
 //page_top.php var setup
 $page_title = "Wishlist | Sam's Books";
 $curPage  = "Wishlist";
+$require_login = false;
 $jsPaths = array('js/main.js','js/wishlist.js');
 require_once('page_top.php');
+
+$query = "SELECT * FROM `wishlist` ORDER BY `book_name`";
+$results = mysqli_query( $link, $query );
 ?>
             <div class="search_box">
             <input type="text" placeholder="Search wishlist..." onkeyup="search_table()" id="search_box">

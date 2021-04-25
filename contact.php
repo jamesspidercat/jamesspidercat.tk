@@ -1,8 +1,8 @@
 <?php
-include("connect.php");
 //page_top.php var setup
 $page_title = "Contact | Sam's Books";
 $curPage  = "Contact";
+$require_login = false;
 $jsPaths = array('js/main.js','js/no_resubmit.js');
 require_once('page_top.php');
 ?>

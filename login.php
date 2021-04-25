@@ -2,6 +2,7 @@
 //page_top.php var setup
 $page_title = "Login | Sam's Books";
 $curPage  = "login";
+$require_login = false;
 $jsPaths = array('js/main.js','js/no_resubmit.js');
 require_once('page_top.php');
 ?>
