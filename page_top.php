@@ -3,7 +3,7 @@
 //page_top.php var setup
 $page_title = "thispage | Sam's Books";
 $curPage  = "thispage";
-$require_login = false;
+$require_login = '0';
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 */
@@ -12,14 +12,19 @@ require_once ('connect.php');
 session_name( 'userinfo' );
 session_start();
 
-if( isset( $_SESSION['uid'] ) && isset( $_SESSION['uname'] ) ) {
-    $id = $_SESSION['uid'];
-    $name = $_SESSION['uname'];
+if( isset($_SESSION['uid']) && isset($_SESSION['uname']) && isset($_SESSION['uperms'])) {
+	$id = $_SESSION['uid'];
+	$name = $_SESSION['uname'];
+	$permissions = $_SESSION['uperms'];
+	//permissions in order of power: [0:none,1:user,2:vip,3:mod,4:admin] (none being not signed in)
 
-    $logged_in = true;
 }
 else {
-    $logged_in = false;
+	$permissions = 0;
+}
+if ($require_login > $permissions){
+	header("Location: login.php?redirect");
+	die();
 }
 ?>
 <!doctype html>

@@ -2,9 +2,13 @@
 //page_top.php var setup
 $page_title = "Login | Sam's Books";
 $curPage  = "login";
-$require_login = false;
+$require_login = '0';
 $jsPaths = array('js/main.js','js/no_resubmit.js');
 require_once('page_top.php');
+
+if (isset($_GET['redirect'])){
+	print '<script>alert( "Please login to access that page" );</script>';
+}
 ?>
 <div class="row" style="margin-left: 10px; padding: 10px;">
     <form name="login" method="post" class="col-12 col-md-6" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
@@ -117,7 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 if( hash( 'sha256', $password.$salt ) == $hash) {//password correct?
                     $_SESSION["uid"] = $id;
                     $_SESSION["uname"] = $name;
-                    $_SESSION["uperms"] = $perms;
+					if ($perms == 'user') $_SESSION['uperms'] = 1;
+					else if ($perms == 'vip') $_SESSION['uperms'] = 2;
+					else if ($perms == 'mod') $_SESSION['uperms'] = 3;
+					else if ($perms == 'admin') $_SESSION['uperms'] = 4;
+
 
 
                     print '<script>

@@ -2,7 +2,7 @@
 //page_top.php var setup
 $page_title = "Home | Sam's Books";
 $curPage  = 'Home';
-$require_login = false;
+$require_login = '0';
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 

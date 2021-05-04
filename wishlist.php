@@ -2,7 +2,7 @@
 //page_top.php var setup
 $page_title = "Wishlist | Sam's Books";
 $curPage  = "Wishlist";
-$require_login = false;
+$require_login = '0';
 $jsPaths = array('js/main.js','js/wishlist.js');
 require_once('page_top.php');
 
