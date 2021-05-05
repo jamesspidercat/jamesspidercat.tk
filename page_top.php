@@ -65,11 +65,11 @@ if ($require_login > $permissions){
             <a href="sources.php"<?php if ($curPage=="Sources") echo " class=\"samePage\"";?>>Sources</a>
             <a href="contact.php"<?php if ($curPage=="Contact") echo " class=\"samePage\"";?>>Contact</a>
 			<?php
-			if ($permissions == 0){
+			if ($permissions == 0){//if not logged in add these to nav
 				print '<a href="login.php"';
 				if ($curPage=="login") echo " class=\"samePage\"";
 				print '>Login</a>';
-			}else{
+			}else{//if logged in add these to nav
 				print '<a href="logout.php"';
 				if ($curPage=="logout") echo " class=\"samePage\"";
 				print '>Logout</a>';

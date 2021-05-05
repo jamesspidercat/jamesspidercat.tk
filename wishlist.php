@@ -87,10 +87,10 @@ $results = mysqli_query( $link, $query );
                         print'<td>'.$record['book_type'].'</td> <td>';
                         //print rating stars
                         for ($x = 0; $x < $record['want']; $x++) {
-                            print'★';
+                            print'♥';
                         }
                         for ($x = 0; $x < (5-$record['want']); $x++) {
-                            print'☆';
+                            print'♡';
                         }
                         //print have read yes/no
                         print'</td><td>';
