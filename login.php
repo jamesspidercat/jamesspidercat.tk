@@ -9,6 +9,9 @@ require_once('page_top.php');
 if (isset($_GET['redirect'])){
 	print '<script>alert( "Please login to access that page" );</script>';
 }
+if ($permissions != 0){
+	header("Location: logout.php");
+}
 ?>
 <div class="row" style="margin-left: 10px; padding: 10px;">
     <form name="login" method="post" class="col-12 col-md-6" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>

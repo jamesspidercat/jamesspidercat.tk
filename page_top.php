@@ -64,4 +64,15 @@ if ($require_login > $permissions){
             <a href="wishlist.php"<?php if ($curPage=="Wishlist") echo " class=\"samePage\"";?>>Wishlist</a>
             <a href="sources.php"<?php if ($curPage=="Sources") echo " class=\"samePage\"";?>>Sources</a>
             <a href="contact.php"<?php if ($curPage=="Contact") echo " class=\"samePage\"";?>>Contact</a>
+			<?php
+			if ($permissions == 0){
+				print '<a href="login.php"';
+				if ($curPage=="login") echo " class=\"samePage\"";
+				print '>Login</a>';
+			}else{
+				print '<a href="logout.php"';
+				if ($curPage=="logout") echo " class=\"samePage\"";
+				print '>Logout</a>';
+			}
+			?>
         </nav>
