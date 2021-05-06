@@ -10,11 +10,12 @@ require_once('page_top.php');
 <form name="logout" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <h3>Are you sure you want to logout?</h3>
             <div class="row">
-                <button type="submit" name="yes" class="btn btn-success col-1 m-1" value="logout">Yes Please</button>
+                <button type="submit" name="yes" class="btn btn-success col-1 m-1" value="yes">Yes Please</button>
                 <button type="submit" name="maybe" class="btn btn-warning col-1 m-1" value="unsure">I'm Not Sure</button>
                 <button type="submit" name="no" class="btn btn-danger col-1 m-1" value="no">No Thanks!</button>
             </div>
     </form>
+    
 </div>
 
 <?php
