@@ -12,7 +12,10 @@ require_once('page_top.php');
             Irure do cillum dolore adipisicing in. Eu excepteur duis commodo tempor aliqua aliqua commodo nostrud et ex ex esse. Elit Lorem incididunt occaecat non in velit reprehenderit proident. In deserunt quis consequat eiusmod ad exercitation commodo. Aute do cillum magna sunt. Ipsum ut incididunt reprehenderit dolore ad quis qui reprehenderit.
         </div>
         <div class="col-4">
-            <img src="imgs/book_stack.jpg" width="70%">
+            <figure class="figure">
+                <img class="figure-img" src="imgs/book_stack.jpg" width="70%">
+                <figcaption class="figure-caption text-white">A caption for the above image.</figcaption>
+            </figure>
         </div>
     </div>
     <div class="row">
@@ -26,6 +29,20 @@ Et mollit incididunt voluptate sit. Ex sint est aliqua excepteur incididunt dolo
 Minim aliqua nisi fugiat proident ea et. Aliqua laboris duis sint commodo laboris fugiat magna consectetur ut. Aliqua duis adipisicing enim mollit consequat id veniam. Dolore consectetur esse commodo in voluptate.
 
 Anim elit deserunt cillum mollit eiusmod magna est aliquip. Ad dolor duis aliquip cillum pariatur. Velit tempor dolor deserunt fugiat voluptate sunt sint incididunt ad. Velit culpa ad eu aute dolore occaecat anim dolor et veniam qui.
+        </div>
+        <div class="col-4">
+            <figure class="figure">
+                <video class="figure-img" src="imgs/Sample MP4 Video File for Testing.mp4" controls width="100%"></video>
+                <figcaption class="figure-caption text-white">Wow a video</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <figure class="figure">
+                <audio class="figure-img" src="imgs/The Horne Section - THREE GREAT SONGS AND EIGHT MORE SONGS - 01 -concerned-.mp3" controls></audio>
+                <figcaption class="figure-caption text-white">Wow an audio</figcaption>
+            </figure>
         </div>
     </div>
 </div>
