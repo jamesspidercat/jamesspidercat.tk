@@ -70,9 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         print   '<script>
                 document.getElementById("signup_attempt").innerHTML+="Creating Account...<br>";
                 </script>';
-                $statement = $link->prepare("SELECT user_id
-                FROM users
-                WHERE username LIKE ?");
+        $statement = $link->prepare("SELECT user_id
+        FROM users
+        WHERE username LIKE ?");
         if( $statement) {//check if username in use already
             $statement->bind_param('s', $username );
             $statement->execute();
