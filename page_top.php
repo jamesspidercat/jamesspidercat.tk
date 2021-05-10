@@ -23,7 +23,11 @@ else {
 	$permissions = 0;
 }
 if ($require_login > $permissions){
-	header("Location: login.php?redirect");
+    if ($permissions == 0){
+	    header("Location: login.php?redirect");
+    }else{
+        header("Location: index.php?redirect");
+    }
 	die();
 }
 ?>

@@ -6,6 +6,9 @@ $require_login = '0';
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 
+if (isset($_GET['redirect'])){
+	print '<script>alert( "You do not have sufficient permissions to view this page" );</script>';
+}
 include ("book_of_the_day.php");
 $query = "SELECT * FROM `book_data` ORDER BY `book_name`";
 $results = mysqli_query( $link, $query );
