@@ -22,14 +22,17 @@ if( isset($_SESSION['uid']) && isset($_SESSION['uname']) && isset($_SESSION['upe
 else {
 	$permissions = 0;
 }
-if ($require_login > $permissions){
-    if ($permissions == 0){
-	    header("Location: login.php?redirect");
-    }else{
-        header("Location: index.php?redirect");
+function login($require_login,$permissions){
+    if ($require_login > $permissions){
+        if ($permissions == 0){
+            header("Location: login.php?redirect");
+        }else{
+            header("Location: index.php?redirect");
+        }
+        die();
     }
-	die();
 }
+login($require_login,$permissions);
 ?>
 <!doctype html>
 <html lang="en">
