@@ -13,7 +13,7 @@ require_once('page_top.php');
         </div>
         <div class="col-4">
             <figure class="figure">
-                <img class="figure-img" src="imgs/book_stack.jpg" width="70%">
+                <img class="figure-img" src="blog/1/cat.jpg" width="70%">
                 <figcaption class="figure-caption text-white">A caption for the above image.</figcaption>
             </figure>
         </div>
@@ -32,7 +32,7 @@ Anim elit deserunt cillum mollit eiusmod magna est aliquip. Ad dolor duis aliqui
         </div>
         <div class="col-4">
             <figure class="figure">
-                <video class="figure-img" src="imgs/Sample MP4 Video File for Testing.mp4" controls width="100%"></video>
+                <video class="figure-img" src="blog/1/sample-mp4-file.mp4" controls width="100%"></video>
                 <figcaption class="figure-caption text-white">Wow a video</figcaption>
             </figure>
         </div>
@@ -40,7 +40,7 @@ Anim elit deserunt cillum mollit eiusmod magna est aliquip. Ad dolor duis aliqui
     <div class="row justify-content-center">
         <div class="col-4">
             <figure class="figure">
-                <audio class="figure-img" src="imgs/The Horne Section - THREE GREAT SONGS AND EIGHT MORE SONGS - 01 -concerned-.mp3" controls></audio>
+                <audio class="figure-img" src="blog/1/file_example_MP3_700KB.mp3" controls></audio>
                 <figcaption class="figure-caption text-white">Wow an audio</figcaption>
             </figure>
         </div>
