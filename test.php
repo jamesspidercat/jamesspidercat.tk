@@ -7,10 +7,11 @@ $jsPaths = array('js/main.js');
 require_once('page_top.php');
 ?>
 <div class="container" style="color: white;">
-    <div class="row justify-content-between"><!-- start between end center (if only 1 in middle)-->
+    <div class="row">
         <div class="col-4">
             Irure do cillum dolore adipisicing in. Eu excepteur duis commodo tempor aliqua aliqua commodo nostrud et ex ex esse. Elit Lorem incididunt occaecat non in velit reprehenderit proident. In deserunt quis consequat eiusmod ad exercitation commodo. Aute do cillum magna sunt. Ipsum ut incididunt reprehenderit dolore ad quis qui reprehenderit.
         </div>
+        <div class="col-4">&nbsp;</div>
         <div class="col-4">
             <figure class="figure">
                 <img class="figure-img" src="blog/1/cat.jpg" width="70%">
@@ -32,16 +33,16 @@ Anim elit deserunt cillum mollit eiusmod magna est aliquip. Ad dolor duis aliqui
         </div>
         <div class="col-4">
             <figure class="figure">
-                <video class="figure-img" src="blog/1/sample-mp4-file.mp4" controls width="100%"></video>
+                <video class="figure-img img-fluid" src="blog/1/sample-mp4-file.mp4" controls width="100%">test</video>
                 <figcaption class="figure-caption text-white">Wow a video</figcaption>
             </figure>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-4">
             <figure class="figure">
                 <audio class="figure-img" src="blog/1/file_example_MP3_700KB.mp3" controls></audio>
-                <figcaption class="figure-caption text-white">Wow an audio</figcaption>
+                <figcaption class="figure-caption text-white">Wow an audioAute proident pariatur culpa consectetur ipsum reprehenderit eu duis ad qui. Incididunt occaecat sint eiusmod minim voluptate. Labore Lorem veniam deserunt qui deserunt voluptate aute consequat ex in dolor fugiat cupidatat. Proident non nostrud voluptate eiusmod exercitation aute nostrud anim.</figcaption>
             </figure>
         </div>
     </div>
