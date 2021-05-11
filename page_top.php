@@ -7,7 +7,7 @@ $require_login = '0';
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 */
-
+date_default_timezone_set("Pacific/Auckland");
 require_once ('connect.php');
 session_name( 'userinfo' );
 session_start();

@@ -5,7 +5,6 @@ if (is_file('last_opened.txt')){
 	$last_opened = fread($myfile,filesize("last_opened.txt"));
 	fclose($myfile);
 }
-date_default_timezone_set("Pacific/Auckland");
 $date = date("m.d");
 if ($date != $last_opened || !is_file('last_opened.txt')){
   $myfile = fopen("last_opened.txt", "w") or die("Unable to open file");
