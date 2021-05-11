@@ -74,9 +74,60 @@ if( $statement) {
     die();
 }
 db_bind_array($statement, $result);
+$row_col = 0;//Published 2/05/2021, 3:46:00 pm by Jordan Hay
+$post_date = date_create($post_date);
+$last_edit = date_create($last_edit);
+print '
+
+<div class="container" style="color: white;">
+    <div class="row">
+    <h1>
+       '.$post_title.' 
+    </h1>
+    <p>
+        <span title="Last Edited: '.date_format($last_edit,"l F d Y H:i:s a").'">Published '.date_format($post_date,"l F d Y H:i:s a").'</span>
+        <span title="'.$post_username.'">By '.$post_author.'</span>
+    </p>
+    </div>
+<div class="row">';
 while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
-    print $result['text'];
+    $row_col += $result['width'];
+    if ($row_col > 3){
+        $row_col = $result['width'];
+        print '</div><div class="row">';//close row, open next row
+    }
+    print '<div class="col-12 col-md-'.($result['width']*4).'">';//open col
+    switch ($result['type']){
+        case "text":
+            print $result['text'];
+            break;
+        case "image":
+            print '<figure class="figure">
+            <img class="figure-img img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'">
+            <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
+        </figure>';
+            break;
+        case "video":
+            print '<figure class="figure">
+                <video class="figure-img  img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'" controls></video>
+                <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
+            </figure>';
+            break;
+        case "audio":
+            print '<figure class="figure">
+            <audio class="figure-img" src="blog/'.$post_id.'/'.$result['file'].'" controls></audio>
+            <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
+        </figure>';
+            break;
+        default:
+            print '&nbsp;';
+            break;
+
+    }
+    print '</div>';
+    //print $result['text'];
 }
+print '</div></div>';//close final row, close container
 $statement->close();
 //footer
 include ("page_bottom.php");
