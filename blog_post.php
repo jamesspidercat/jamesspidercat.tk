@@ -50,7 +50,15 @@ print "
 //
 //Create Post
 //
-
+function db_bind_array($stmt, &$row)
+{
+  $md = $stmt->result_metadata();
+  $params = array();
+  while($field = $md->fetch_field()) {
+      $params[] = &$row[$field->name];
+  }
+  return call_user_func_array(array($stmt, 'bind_result'), $params);
+}
 $statement = $link->prepare("SELECT
     *
 FROM
@@ -62,14 +70,12 @@ ORDER BY
 if( $statement) {
     $statement->bind_param('i', $post_id);
     $statement->execute();
-    print '1';
-    $result = $statement->get_result();
-    print '2';
 }else{
     die();
 }
-while ($row = $result->fetch_assoc()) {
-    break;
+db_bind_array($statement, $result);
+while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
+    print $result['text'];
 }
 $statement->close();
 //footer
