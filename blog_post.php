@@ -74,7 +74,7 @@ if( $statement) {
     die();
 }
 db_bind_array($statement, $result);
-$row_col = 0;//Published 2/05/2021, 3:46:00 pm by Jordan Hay
+$row_col = 0;
 $post_date = date_create($post_date);
 $last_edit = date_create($last_edit);
 print '
@@ -125,7 +125,6 @@ while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
 
     }
     print '</div>';
-    //print $result['text'];
 }
 print '</div></div>';//close final row, close container
 $statement->close();
