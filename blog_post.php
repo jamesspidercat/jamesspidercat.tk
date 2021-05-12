@@ -89,7 +89,7 @@ print '
         <span title="'.$post_username.'">By '.$post_author.'</span>
     </p>
     </div>
-<div class="row">';
+<div class="row">';//open first row
 while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
     $row_col += $result['width'];
     if ($row_col > 3){
@@ -124,7 +124,7 @@ while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
             break;
 
     }
-    print '</div>';
+    print '</div>';//close col
 }
 print '</div></div>';//close final row, close container
 $statement->close();
