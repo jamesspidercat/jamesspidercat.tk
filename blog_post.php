@@ -96,20 +96,20 @@ while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
         $row_col = $result['width'];
         print '</div><div class="row">';//close row, open next row
     }
-    print '<div class="col-12 col-md-'.($result['width']*4).'">';//open col
+    print '<div class="col-12 col-md-'.($result['width']*4).' text-'.$result['align'].'">';//open col
     switch ($result['type']){
         case "text":
             print $result['text'];
             break;
         case "image":
             print '<figure class="figure">
-            <img class="figure-img img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'">
+            <img class="figure-img img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'%">
             <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
         </figure>';
             break;
         case "video":
             print '<figure class="figure">
-                <video class="figure-img  img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'" controls></video>
+                <video class="figure-img  img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'%" controls></video>
                 <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
             </figure>';
             break;
