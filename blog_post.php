@@ -13,7 +13,7 @@ if (!isset($_GET['post'])){
 }
 $post_id = $_GET['post'];
 $statement = $link->prepare("SELECT
-users.user_id, users.name, users.username, `visibility`, `post_date`, `last_edit`, `title`
+users.user_id, users.name, users.username, `visibility`, `post_date`, `title`
 FROM
 `blog_posts`
 INNER JOIN `users` ON blog_posts.author = users.user_id
@@ -21,7 +21,7 @@ WHERE `post_id` = ?");
 if( $statement) {
     $statement->bind_param('i', $post_id);
     $statement->execute();
-    $statement->bind_result($author_id, $post_author, $post_username, $post_visibility, $post_date, $last_edit, $post_title);
+    $statement->bind_result($author_id, $post_author, $post_username, $post_visibility, $post_date, $post_title);
     if($statement->fetch()) {
         $statement->close();
     }else{
@@ -76,7 +76,6 @@ if( $statement) {
 db_bind_array($statement, $result);
 $row_col = 0;
 $post_date = date_create($post_date);
-$last_edit = date_create($last_edit);
 print '
 
 <div class="container" style="color: white;">
@@ -85,7 +84,7 @@ print '
        '.$post_title.' 
     </h1>
     <p>
-        <span title="Last Edited: '.date_format($last_edit,"l F d Y H:i:s a").'">Published '.date_format($post_date,"l F d Y H:i:s a").'</span>
+        Published '.date_format($post_date,"l F d Y H:i:sa").'
         <span title="'.$post_username.'">By '.$post_author.'</span>
     </p>
     </div>
