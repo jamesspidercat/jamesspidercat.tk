@@ -256,3 +256,10 @@ footer a:hover, a.source:hover{
 @keyframes load{
     100% {opacity: 1;}
 }
+.post-border{
+    border: 3px solid white;
+}
+a.blog_link, a.blog_link:hover, a.blog_link:visited, a.blog_link:active {
+    color: inherit;
+    text-decoration: none;
+   }
