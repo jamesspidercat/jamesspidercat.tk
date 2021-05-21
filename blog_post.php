@@ -1,7 +1,7 @@
 <?php
 //page_top.php var setup
 $page_title = "Blog Post | Sam's Books";
-$curPage  = "blog_post";
+$curPage  = "Blog";
 $require_login = 0;
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
@@ -50,15 +50,6 @@ print "
 //
 //Create Post
 //
-function db_bind_array($stmt, &$row)
-{
-  $md = $stmt->result_metadata();
-  $params = array();
-  while($field = $md->fetch_field()) {
-      $params[] = &$row[$field->name];
-  }
-  return call_user_func_array(array($stmt, 'bind_result'), $params);
-}
 $statement = $link->prepare("SELECT
     *
 FROM

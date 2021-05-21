@@ -7,10 +7,27 @@ $require_login = '0';
 $jsPaths = array('js/main.js');
 require_once('page_top.php');
 */
+
+//comment out for live version
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 date_default_timezone_set("Pacific/Auckland");
 require_once ('connect.php');
 session_name( 'userinfo' );
 session_start();
+
+function db_bind_array($stmt, &$row)
+{
+  $md = $stmt->result_metadata();
+  $params = array();
+  while($field = $md->fetch_field()) {
+      $params[] = &$row[$field->name];
+  }
+  return call_user_func_array(array($stmt, 'bind_result'), $params);
+}
 
 if( isset($_SESSION['uid']) && isset($_SESSION['uname']) && isset($_SESSION['uperms'])) {
 	$id = $_SESSION['uid'];
@@ -21,6 +38,8 @@ if( isset($_SESSION['uid']) && isset($_SESSION['uname']) && isset($_SESSION['upe
 }
 else {
 	$permissions = 0;
+    $id = null;
+    $name = null;
 }
 function login($require_login,$permissions){
     if ($require_login > $permissions){
@@ -70,6 +89,7 @@ login($require_login,$permissions);
             <a href="table.php"<?php if ($curPage=="Table") echo " class=\"samePage\"";?>>Table</a>
             <a href="wishlist.php"<?php if ($curPage=="Wishlist") echo " class=\"samePage\"";?>>Wishlist</a>
             <a href="sources.php"<?php if ($curPage=="Sources") echo " class=\"samePage\"";?>>Sources</a>
+            <a href="blog.php"<?php if ($curPage=="Blog") echo " class=\"samePage\"";?>>Blog</a>
             <a href="contact.php"<?php if ($curPage=="Contact") echo " class=\"samePage\"";?>>Contact</a>
 			<?php
 			if ($permissions == 0){//if not logged in add these to nav
