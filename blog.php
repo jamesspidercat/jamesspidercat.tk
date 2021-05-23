@@ -69,7 +69,7 @@ while ($statement->fetch()) {
         </div>
         <div class="col-8 text-white order-first">
             <h1>'.$result['title'].'</h1>
-            Published '.date_format($post_date,"l F d Y H:i:sa").'
+            Published '.date_format($post_date,"l F d Y h:i:sa").'
             <span title="'.$result['username'].'">By '.$result['name'].'</span>
             <hr>
             <p class="truncate" style="max-height: 100px;">'.strip_tags($result['text']).'</p>

@@ -75,7 +75,7 @@ print '
        '.$post_title.' 
     </h1>
     <p>
-        Published '.date_format($post_date,"l F d Y H:i:sa").'
+        Published '.date_format($post_date,"l F d Y h:i:sa").'
         <span title="'.$post_username.'">By '.$post_author.'</span>
     </p>
     </div>
