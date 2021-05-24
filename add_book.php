@@ -82,12 +82,12 @@ function setThreeNumberDecimal(event) {
             <label class="form-label">Location Owned*</label>
             <br>
             <?php
-            $owned = ['Paperback','Hardback','Floppy','Box_Set','Kindle','Comixology','Big_Finish','Humble_Bundle','Fanatical','Audible','Unbound','Other'];
-            foreach($owned as $i){
+            $ownedlist = ['Paperback','Hardback','Floppy','Box_Set','Kindle','Comixology','Big_Finish','Humble_Bundle','Fanatical','Audible','Unbound','Other'];
+            foreach($ownedlist as $i){
                 print '<input type="checkbox" id="'.$i.'" name="'.$i.'" value="'.$i.'"required>
-                <label for="'.$i.'" class="form-label" styles>'.str_replace('_',' ',ucfirst($i)).' </label>';
+                <label for="'.$i.'" class="form-label" styles>'.str_replace('_',' ',$i).' </label>';
             }
-            unset($i)
+            unset($i);
             ?>
         </div>
         <div class="form-group">
@@ -117,16 +117,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             `notes`
         )
     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    //prepare posted data here
-            $book_name = 'test';
-            $author = 'test';
-            $series_number = 4.434;
-            $series_name = 'test';
-            $book_type = 'prose';
-            $collected_in = null;
-            $format = 'physical';
-            $owned = 'box_set';
-            $notes = 'test_book';
+    //prepare posted data
+    function drop_empty($var){
+        return ($var === '') ? NULL : $var;
+    }
+    $post = array_map('drop_empty', $_POST);
+            $book_name = $post['book_name'];
+            $author = $post['author'];
+            $series_number = $post['series_number'];
+            $series_name = $post['series_name'];
+            $book_type = $post['book_type'];
+            $collected_in = $post['collected_in'];
+            $format = '';
+            $formatlist = ['physical','digital','audio'];
+            foreach ($formatlist as $i){
+                if (isset($post[$i])){
+                    if ($format == ''){
+                        $format = $i;
+                    }else{
+                        $format .= ',';
+                        $format .= $i;
+                    }
+                }
+            }
+            unset($i);
+            $owned = '';
+            foreach ($ownedlist as $i){
+                if (isset($post[$i])){
+                    if ($owned == ''){
+                        $owned = $i;
+                    }else{
+                        $owned .= ',';
+                        $owned .= $i;
+                    }
+                }
+            }
+            print $owned;
+            print $format;
+            unset($i);
+            $notes = $post['notes'];
     //
     if( $statement ) {
         $statement->bind_param("ssdssssss", $book_name,$author,$series_number,$series_name,
