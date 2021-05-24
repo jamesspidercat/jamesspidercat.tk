@@ -152,8 +152,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     }
                 }
             }
-            print $owned;
-            print $format;
             unset($i);
             $notes = $post['notes'];
     //
