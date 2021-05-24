@@ -98,9 +98,50 @@ function setThreeNumberDecimal(event) {
         <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary" value="submit">Add</button>
         </div>
-        <p id="signup_attempt"></p>
+        <p id="post_attempt"></p>
     </form>
 </div>
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $statement = $link->prepare("INSERT
+    INTO
+        `book_data`(
+            `book_name`,
+            `author`,
+            `series_number`,
+            `series_name`,
+            `book_type`,
+            `collected_in`,
+            `format`,
+            `owned`,
+            `notes`
+        )
+    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    //prepare posted data here
+            $book_name = 'test';
+            $author = 'test';
+            $series_number = 4.434;
+            $series_name = 'test';
+            $book_type = 'prose';
+            $collected_in = null;
+            $format = 'physical';
+            $owned = 'box_set';
+            $notes = 'test_book';
+    //
+    if( $statement ) {
+        $statement->bind_param("ssdssssss", $book_name,$author,$series_number,$series_name,
+        $book_type,$collected_in,$format,$owned,$notes);
+        $statement->execute();
+        $statement->close();
+        print   '<script>
+        document.getElementById("post_attempt").innerHTML+="Book successfully added!<br>";
+        </script>';
+    }else{
+        print   '<script>
+    document.getElementById("post_attempt").innerHTML+="An unknown error has occurred, please try again<br>";
+    </script>';
+    }
+}
+
 include ("page_bottom.php");
 ?>
