@@ -31,16 +31,11 @@ if( $statement) {
 }else{
     die();
 }
-if ($post_visibility == 'author'){
+if ($post_visibility == '5'){
     if (!($author_id == $id)){
         login(5,$permissions);
     }
 }else{
-    if ($post_visibility == 'none') $post_visibility = 0;
-    else if ($post_visibility == 'user') $post_visibility = 1;
-    else if ($post_visibility == 'vip') $post_visibility = 2;
-    else if ($post_visibility == 'mod') $post_visibility = 3;
-    else if ($post_visibility == 'admin') $post_visibility = 4;
     login($post_visibility,$permissions);
 }
 print "

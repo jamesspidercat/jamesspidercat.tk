@@ -45,18 +45,12 @@ if( $statement) {
 }
 db_bind_array($statement, $result);
 while ($statement->fetch()) {
-    if ($result['visibility'] == 'author'){
+    if ($result['visibility'] == 5){
         if (!($result['user_id'] == $id)){
             continue;
         }
     }else{
-        $post_visibility = 0;
-        if ($result['visibility'] == 'none') $post_visibility = 0;
-        else if ($result['visibility'] == 'user') $post_visibility = 1;
-        else if ($result['visibility'] == 'vip') $post_visibility = 2;
-        else if ($result['visibility'] == 'mod') $post_visibility = 3;
-        else if ($result['visibility'] == 'admin') $post_visibility = 4;
-        if ($post_visibility > $permissions){
+        if ($result['visibility'] > $permissions){
             continue;
         }
     }
