@@ -101,5 +101,10 @@ login($require_login,$permissions);
 				if ($curPage=="logout") echo " class=\"samePage\"";
 				print '>Logout</a>';
 			}
+            if ($permissions >= 3){
+                print '<a href="admin.php"';
+				if ($curPage=="admin") echo " class=\"samePage\"";
+				print '>Admin Area</a>';
+            }
 			?>
         </nav>
