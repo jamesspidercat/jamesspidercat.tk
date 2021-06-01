@@ -3,7 +3,7 @@ $(document).ready( function () {//create datatables table
         "lengthChange": false,
         "pageLength": 25,
         language: {
-            searchPlaceholder: "Search users",
+            searchPlaceholder: "Search usernames",
             search: "",
         },
         "dom": 'lrtip',
@@ -33,4 +33,12 @@ function search_table(){
     var table = $('#main').DataTable();
     table.column(1).search(search, false, true).draw();
     console.log(search);
+}
+function update_user(user_id){
+    var selected = document.getElementById("user_"+user_id).value;
+    document.getElementById('feedback').innerHTML = user_id + selected;
+    $.post("update_user.php", {
+        user_id : user_id,
+        permission : selected
+    });
 }
