@@ -19,12 +19,12 @@ require_once('page_top.php');
 				<div class="form-group">
 					<label for="contact_reason" class="form-label">Contact Reason</label>
 					<select class="form-select" id="contact_reason" name="contact_reason" required>
-					<option selected disabled value="">Choose...</option>
-					<option value="Problem With Site">Problem With Site</option>
-					<option value="Problem With Database">Problem With Database</option>
-					<option value="Questions">Questions</option>
-					<option value="Anonymous Death Threat">Anonymous Death Threats</option>
-					<option value="Other">Other</option>
+						<option selected disabled value="">Choose...</option>
+						<option value="Problem With Site">Problem With Site</option>
+						<option value="Problem With Database">Problem With Database</option>
+						<option value="Questions">Questions</option>
+						<option value="Anonymous Death Threat">Anonymous Death Threats</option>
+						<option value="Other">Other</option>
 					</select>
 				</div>
 				<div class="form-group">
