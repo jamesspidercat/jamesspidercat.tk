@@ -36,9 +36,14 @@ function search_table(){
 }
 function update_user(user_id){
     var selected = document.getElementById("user_"+user_id).value;
-    document.getElementById('feedback').innerHTML = user_id + selected;
     $.post("update_user.php", {
         user_id : user_id,
         permission : selected
+    },function(data){
+        if (data == 'success'){
+            alert("Successfully updated permissions for User id: "+user_id);
+        }else{
+        alert("Failed to update user");
+        }
     });
 }

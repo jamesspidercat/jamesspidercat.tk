@@ -1,5 +1,5 @@
 <?php
-require_once('connect.php');
+include('connect.php');
 
 $statement = $link->prepare("UPDATE
 `users`
@@ -8,12 +8,13 @@ SET
 WHERE
 `user_id` = ?");
 //validate data first! make sure user has permissions to do this update!
+//Need to make it confirm login details on every page load
 if( $statement) {
     $statement->bind_param("si",$_POST['permission'],$_POST['user_id']);
     $statement->execute();
 }else{
-    echo $_POST['permission'];  
+    echo 'failed'; 
     die();
 }
-echo $_POST['permission'];
+echo 'success';
 ?>
