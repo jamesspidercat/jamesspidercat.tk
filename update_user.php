@@ -12,6 +12,8 @@ if( $statement) {
     $statement->bind_param("si",$_POST['permission'],$_POST['user_id']);
     $statement->execute();
 }else{
+    echo $_POST['permission'];  
     die();
 }
+echo $_POST['permission'];
 ?>
