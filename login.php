@@ -59,8 +59,6 @@ if ($permissions != 0){
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     unset( $_SESSION["uid"] );
-    unset( $_SESSION["uname"] );
-    unset( $_SESSION["uperms"] );
     if ($_POST['submit'] == 'register'){//if user is registering
         $username = $_POST['username'];
         $name = $_POST['name'];
@@ -123,11 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             if( $statement->fetch()) {//check if account exists
                 if( hash( 'sha256', $password.$salt ) == $hash) {//password correct?
                     $_SESSION["uid"] = $id;
-                    $_SESSION["uname"] = $name;
-					if ($perms == 'user') $_SESSION['uperms'] = 1;
-					else if ($perms == 'vip') $_SESSION['uperms'] = 2;
-					else if ($perms == 'mod') $_SESSION['uperms'] = 3;
-					else if ($perms == 'admin') $_SESSION['uperms'] = 4;
 
 
 
