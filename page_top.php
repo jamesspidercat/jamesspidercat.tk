@@ -16,8 +16,6 @@ error_reporting(E_ALL);
 
 date_default_timezone_set("Pacific/Auckland");
 require_once ('connect.php');
-session_name( 'userinfo' );
-session_start();
 
 function db_bind_array($stmt, &$row)
 {
@@ -28,19 +26,7 @@ function db_bind_array($stmt, &$row)
   }
   return call_user_func_array(array($stmt, 'bind_result'), $params);
 }
-
-if( isset($_SESSION['uid']) && isset($_SESSION['uname']) && isset($_SESSION['uperms'])) {
-	$id = $_SESSION['uid'];
-	$name = $_SESSION['uname'];
-	$permissions = $_SESSION['uperms'];
-	//permissions in order of power: [0:none,1:user,2:vip,3:mod,4:admin] (none being not signed in)
-
-}
-else {
-	$permissions = 0;
-    $id = null;
-    $name = null;
-}
+include('user_setup.php');
 function login($require_login,$permissions){
     if ($require_login > $permissions){
         if ($permissions == 0){
