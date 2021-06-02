@@ -41,7 +41,7 @@ function update_user(user_id){
         permission : selected
     },function(data){
         if (data == 'success'){
-            alert("Successfully updated permissions for User id: "+user_id);
+            if(!alert("Successfully updated permissions for User id: "+user_id)){window.location.reload();}
         }else{
         alert("Failed to update user");
         }
