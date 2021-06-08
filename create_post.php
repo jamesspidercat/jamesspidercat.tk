@@ -36,6 +36,7 @@ require_once('page_top.php');
 				<option value="3">Mod</option>
 				<option value="4">Admin</option>
 			</select>
+			<hr>
 	</aside>
 </div>
 <?php
