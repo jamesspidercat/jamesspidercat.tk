@@ -268,3 +268,11 @@ a.blog_link, a.blog_link:hover, a.blog_link:visited, a.blog_link:active {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.post-options {
+    margin: 3px;
+}
+.post-element {
+    padding: 50px;
+    border: black 3px solid;
+    margin: 13px;
+}
