@@ -32,6 +32,9 @@ function moveChoiceTo(elem_choice, direction) {
     }
 }
 function edit_element(element){
+	//save current stuff before loading new element
+
+	//
 	selected_element = element.id;
 	document.getElementById("selected").innerHTML = selected_element;
 	var accept = '', element_options = document.getElementById("element-options");
