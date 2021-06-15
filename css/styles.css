@@ -276,3 +276,6 @@ a.blog_link, a.blog_link:hover, a.blog_link:visited, a.blog_link:active {
     border: black 3px solid;
     margin: 13px;
 }
+#element-options {
+    padding-bottom: 15px;
+}

@@ -40,7 +40,47 @@ require_once('page_top.php');
 		<label for="visabilty">Visabilty</label>
 		<hr>
 		<h3>Element Options</h3>
-		<div id="element-options"></div>
+		<div id="element-options">
+			<!-- Selected Element -->
+			<div class="form-group">
+				<label>Selected Element: </label>
+				<small id="selected">None</small>
+			</div>
+			<!-- text -->
+			<div class="form-group">
+				<label for="text" class="form-label">Text</label>
+				<textarea class="form-control disable" id="text" name="text" disabled></textarea>
+			</div>
+			<!-- align -->
+			<div class="form-group">
+				<label for="align" class="form-label">Element Alignment</label>
+				<select class="form-select disable" id="align" name="align" disabled>
+					<option value="start">Start</option>
+					<option value="center">Center</option>
+					<option value="end">End</option>
+				</select>
+			</div>
+			<!-- add file -->
+			<div class="form-group">
+				<label for="file" class="form-label">File</label>
+				<input type="file" class="form-control disable" id="file" name="file" disabled>
+			</div>
+			<!-- file width -->
+			<div class="form-group">
+				<label for="file-width" class="form-label">Image/Video Width %</label>
+				<input type="number" class="form-control disable" id="file-width" name="file-width" disabled minlength="0" maxlength="200">
+			</div>
+			<!-- Save Changes -->
+			<br>
+			<div class="form-group">
+			<button class="btn btn-primary disable" type="submit" disabled id="save">Save Changes</button>
+			</div>
+			<!-- delete -->
+			<br>
+			<div class="form-group">
+			<button class="btn btn-danger disable" type="submit" disabled id="delete" onclick="delete_element()">Delete Element</button>
+			</div>
+		</div>
 	</aside>
 </div>
 <?php

@@ -1,16 +1,18 @@
+var elements_count = 0, selected_element = '';
 function create_element(type){
+	elements_count++;
 	var new_element = document.createElement("div");
 	document.getElementById("post-elements").appendChild(new_element);
-	if (type != 'text' && type != 'blank'){
-		new_element.setAttribute("data-file-width","100%")
-		new_element.setAttribute("data-file","")
-	}
+	new_element.setAttribute("data-file-width","100%");
+	new_element.setAttribute("data-file","");
 	new_element.setAttribute("data-width","3");
 	new_element.setAttribute("data-type",type);
 	new_element.setAttribute("data-text","");
 	new_element.setAttribute("data-align","start");
 	new_element.setAttribute("class","post-element");
-	new_element.setAttribute("onclick","edit_element(this)")
+	new_element.setAttribute("onclick","edit_element(this)");
+	new_element.setAttribute("id","element"+elements_count);
+	new_element.innerHTML = new_element.id;
 }
 function save(){
 
@@ -30,31 +32,50 @@ function moveChoiceTo(elem_choice, direction) {
     }
 }
 function edit_element(element){
-	console.log(element);
-	var element_options = document.getElementById("element-options");
+	selected_element = element.id;
+	document.getElementById("selected").innerHTML = selected_element;
+	var accept = '', element_options = document.getElementById("element-options");
+	document.getElementById('file').removeAttribute("accept");
+	var x, i;
+	x = document.querySelectorAll(".disable");
+	for (i = 0; i < x.length; i++) {
+		x[i].setAttribute("disabled","");
+		//x[i].removeAttribute("disabled")
+	}
 	switch (element.dataset.type){
 		case 'image':
-			accept = ".jpeg, .jpg, .gif, .png, .webp"
+			accept = ".jpeg, .jpg, .gif, .png, .webp";
 			break;
 		case 'video':
-			accept = ".mp4, .webm"
+			accept = ".mp4, .webm";
 			break;
 		case 'audio':
-			accept = ".mp3, .wav"
+			accept = ".mp3, .wav";
 			break;
-		case 'text':
-			//text
-			//align
-		case 'blank':
-			//delete
+		default:
 			break;
 	}
-	if (element == //audio/video/image){
-		//add file
-		var new_element = document.createElement("input");
-		element_options.appendChild(new_element);
-		new_element.setAttribute("type","file");
-		new_element.setAttribute("accept",accept);
+	switch (element.dataset.type){
+		case 'image':
+		case 'video':
+			document.getElementById("file-width").removeAttribute("disabled");
+		case 'audio':
+			document.getElementById("file").removeAttribute("disabled");
+			document.getElementById('file').setAttribute("accept",accept);
+		default:
+			document.getElementById("text").removeAttribute("disabled");
+			document.getElementById("align").removeAttribute("disabled");
+			document.getElementById("save").removeAttribute("disabled");
+			document.getElementById("delete").removeAttribute("disabled");
+			break;
 	}
+	//text
+	//align
+	//add file
 	//file width
+	//delete
+}
+function delete_element(){
+	var element = document.getElementById(selected_element);
+	element.parentNode.removeChild(element);
 }
