@@ -6,6 +6,10 @@ $require_login = '3';
 $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
+<?php
+//code to get existing elements from database & print js code to create them
+//check if .php?edit=[DB_id]
+?>
 <div class="container row">
 	<section class="col-8" id="post-elements">
 	</section>
@@ -67,13 +71,14 @@ require_once('page_top.php');
 			</div>
 			<!-- file width -->
 			<div class="form-group">
-				<label for="file-width" class="form-label">Image/Video Width %</label>
-				<input type="number" class="form-control disable" id="file-width" name="file-width" disabled minlength="0" maxlength="200">
+				<label for="file_width" class="form-label">Image/Video Width %</label>
+				<input type="number" class="form-control disable" id="file_width" name="file_width" disabled minlength="0" maxlength="200">
 			</div>
-			<!-- Save Changes -->
 			<br>
+			<!-- Move -->
 			<div class="form-group">
-			<button class="btn btn-primary disable" type="submit" disabled id="save">Save Changes</button>
+				<button class="btn btn-primary"onclick="moveChoiceTo(-1)">Move Up</button>
+				<button class="btn btn-primary" onclick="moveChoiceTo(1)">Move Down</button>
 			</div>
 			<!-- delete -->
 			<br>
