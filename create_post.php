@@ -7,8 +7,10 @@ $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
 <?php
-//code to get existing elements from database & print js code to create them
+//add delete post button
 //check if .php?edit=[DB_id]
+// if yes get existing elements from database & print js code to create them
+//if no this is new post, create new post in db then take user to ?edit=[new post id]
 ?>
 <div class="container row">
 	<section class="col-8" id="post-elements">
@@ -41,7 +43,17 @@ require_once('page_top.php');
 			<option value="3">Mod</option>
 			<option value="4">Admin</option>
 		</select>
+		<?php
+$visabilty = 1;//get from db
+echo "<script>$('#visabilty').val(".$visabilty.");</script>";
+		?>
 		<label for="visabilty">Visabilty</label>
+		<br>
+		<label for="unlisted">Unlisted</label>
+		<input type="checkbox" id="unlisted" name="unlisted" <?php
+		//check db if unlisted if so:
+		echo 'checked';
+		?>>
 		<hr>
 		<h3>Element Options</h3>
 		<div id="element-options">
@@ -66,8 +78,12 @@ require_once('page_top.php');
 			</div>
 			<!-- add file -->
 			<div class="form-group">
-				<label for="file" class="form-label">File</label>
-				<input type="file" class="form-control disable" id="file" name="file" disabled>
+				<form method="post" action="" enctype="multipart/form-data" id="upload_image">
+						<label for="file" class="form-label">File</label>
+						<p id="file_name"></p>
+						<input type="file" id="file" name="file" class="form-control disable" disabled/>
+						<input type="button" class="btn btn-primary" value="Upload File" class="form-control disable" id="but_upload" style="margin-top: 3px;" disabled>
+				</form>
 			</div>
 			<!-- file width -->
 			<div class="form-group">

@@ -15,13 +15,32 @@ function create_element(type){
 	new_element.setAttribute("data-db_id","");
 	new_element.innerHTML = new_element.id;
 }
+
+
 function save(){
 	save_element();
-//save elements & general post settings to DB
-//delete all with id in to_delete
-//should reload page
-
+	to_delete = JSON.stringify(to_delete);
+	visability = document.getElementById('visability').value;
+	if (document.getElementById('unlisted').checked){
+		unlisted = true;
+	}else unlisted = false;
+	//'position','text','file_width','file','width','type','align','db_id'
+	elements = [['position','text','file_width','file','width','type','align','db_id']];
+	$.post("update_user.php", {
+		//all vars sent here to php
+		to_delete : to_delete,
+		visability : visability,
+		unlisted : unlisted
+	},function(data){
+		if (data == 'success'){
+			if(!alert("Successfully saved post")){window.location.reload();}
+		}else{
+			if(!alert("Failed to save changes")){window.location.reload();}
+		}
+	});
 }
+
+
 function preview(){
 	//save first
 	save();
@@ -44,12 +63,14 @@ function edit_element(element){
 	//re disable everything
 	document.getElementById("file_width").setAttribute("disabled","true");
 	document.getElementById("file").setAttribute("disabled","true");
+	document.getElementById("but_upload").setAttribute("disabled","true");
 	document.getElementById("text").setAttribute("disabled","true");
 	document.getElementById("align").setAttribute("disabled","true");
 	document.getElementById("delete").setAttribute("disabled","true");
 	//get data from selected element and put in input boxes
 	document.getElementById("file_width").value = element.dataset.file_width;
-	document.getElementById("file").value = element.dataset.file;
+	document.getElementById("file_name").innerHTML = element.dataset.file;
+	document.getElementById("file").value = '';
 	document.getElementById("text").value = element.dataset.text;
 	document.getElementById("align").value = element.dataset.align;
 	//
@@ -81,6 +102,7 @@ function edit_element(element){
 			document.getElementById("file_width").removeAttribute("disabled");
 		case 'audio':
 			document.getElementById("file").removeAttribute("disabled");
+			document.getElementById("but_upload").removeAttribute("disabled");
 			document.getElementById('file').setAttribute("accept",accept);
 		default:
 			document.getElementById("text").removeAttribute("disabled");
@@ -104,8 +126,49 @@ function save_element(){
 	if (selected_element != ""){
 		element = document.getElementById(selected_element);
 		element.dataset.file_width = document.getElementById("file_width").value;
-		element.dataset.file = document.getElementById("file").value;
+		element.dataset.file = document.getElementById("file_name").innerHTML;
 		element.dataset.text = document.getElementById("text").value;
 		element.dataset.align = document.getElementById("align").value;
 	}
 }
+
+
+
+$(document).ready(function(){
+
+    $("#but_upload").click(function(){
+
+        var fd = new FormData();
+        var files = $('#file')[0].files;
+        
+        // Check file selected or not
+        if(files.length > 0 ){
+           fd.append('file',files[0]);
+		   var url_string = window.location.href;
+		   var url = new URL(url_string);
+		   var id = url.searchParams.get("id");
+		   var element = document.getElementById(selected_element);
+           $.ajax({
+              url: 'upload_image.php?id='+id+'&type='+element.dataset.type,
+              type: 'post',
+              data: fd,
+              contentType: false,
+              processData: false,
+              success: function(response){
+                 if(response != 0){
+					//success
+					document.getElementById('file_name').innerHTML = response;
+                 }else{
+                    alert('file not uploaded');
+					var element = document.getElementById(selected_element);
+					element.dataset.file = '';
+                 }
+              },
+           });
+        }else{
+           alert("Please select a file.");
+		   var element = document.getElementById(selected_element);
+		   element.dataset.file = '';
+        }
+    });
+});
