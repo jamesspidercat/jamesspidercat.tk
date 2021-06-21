@@ -7,6 +7,10 @@ $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
 <?php
+//to do: make elements look better, save to DB, load edit from DB, delete post button
+
+//text posts have text shown in element box, images are shown in element box (with a maxwidth)
+//audio and video and image show file name & text
 //add delete post button
 //check if .php?edit=[DB_id]
 // if yes get existing elements from database & print js code to create them
