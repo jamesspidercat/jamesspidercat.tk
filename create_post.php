@@ -32,13 +32,9 @@ WHERE
         $statement->execute();
 		$statement->bind_result($post_id,$author,$visibility,$unlisted,$post_date,$title);
 		if ($statement->fetch()){
-			//check if user can access post
-			if ($visibility == '5'){
-				if (!($author == $id)){
-					login(5,$permissions);
-				}
-			}else{
-				login($visibility,$permissions);
+			//check if user is post author
+			if (!($author == $id)){
+				login(5,$permissions);
 			}
 			//create elements
 		}else{
