@@ -36,7 +36,6 @@ WHERE
 			if (!($author == $id)){
 				login(5,$permissions);
 			}
-			//create elements
 		}else{
 			print('<script>
 			alert("The Requested Post Does Not Exist");
@@ -51,6 +50,7 @@ WHERE
 		</script>');
 		die();
 	}
+	//create elements here
 }else{
 	$post_title = "Post Title";
 	//if no this is new post, create new post in db then take user to ?edit=[new post id]
