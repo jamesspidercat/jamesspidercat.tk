@@ -7,14 +7,71 @@ $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
 <?php
-//to do: make elements look better, save to DB, load edit from DB, delete post button
+//to do: make elements look better, save to DB, load edit from DB, delete post button, post title edit
 
 //text posts have text shown in element box, images are shown in element box (with a maxwidth)
 //audio and video and image show file name & text
 //add delete post button
+
 //check if .php?edit=[DB_id]
-// if yes get existing elements from database & print js code to create them
-//if no this is new post, create new post in db then take user to ?edit=[new post id]
+if (isset($_GET["edit"])){
+	// if yes get existing elements from database & print js code to create them
+	$statement = $link->prepare("SELECT
+    `post_id`,
+    `author`,
+    `visibility`,
+    `unlisted`,
+    `post_date`,
+    `title`
+FROM
+    `blog_posts`
+WHERE
+    `post_id` = ?");
+	if( $statement ) {
+        $statement->bind_param("i", $_GET["edit"]);
+        $statement->execute();
+		$statement->bind_result($post_id,$author,$visibility,$unlisted,$post_date,$title);
+		if ($statement->fetch()){
+			//check if user can access post
+			if ($visibility == '5'){
+				if (!($author == $id)){
+					login(5,$permissions);
+				}
+			}else{
+				login($visibility,$permissions);
+			}
+			//create elements
+		}else{
+			print('<script>
+			alert("The Requested Post Does Not Exist");
+			location = "blog.php";
+			</script>');
+		}
+        $statement->close();
+    }else{
+		print('<script>
+		alert("An Error Has Occurred");
+		location = "blog.php";
+		</script>');
+		die();
+	}
+}else{
+	$post_title = "Post Title";
+	//if no this is new post, create new post in db then take user to ?edit=[new post id]
+	$statement = $link->prepare("INSERT INTO `blog_posts`(`author`, `title`) VALUES (?, ?)");
+	$statement->bind_param("is",$id,$post_title);
+	$statement->execute();
+	$statement->close();
+	$statement = $link->prepare("SELECT `post_id` FROM blog_posts ORDER BY `post_id` DESC LIMIT 1 ");
+	$statement->execute();
+	$statement->bind_result($new_post);
+	$statement->fetch();
+	$statement->close();
+	print('<script>
+		location = "create_post.php?edit='.$new_post.'";
+		</script>');
+	die();
+}
 ?>
 <div class="container row">
 	<section class="col-8" id="post-elements">
@@ -40,23 +97,25 @@ require_once('page_top.php');
 		</button>
 		<br>
 		
-		<select name="visabilty" id="visabilty" class="btn btn-primary post-options">
+		<select name="visibility" id="visabilty" class="btn btn-primary post-options">
 			<option value="0">All</option>
 			<option value="1">User</option>
 			<option value="2">Vip</option>
 			<option value="3">Mod</option>
 			<option value="4">Admin</option>
+			<option value="5">Author</option>
 		</select>
 		<?php
-$visabilty = 1;//get from db
-echo "<script>$('#visabilty').val(".$visabilty.");</script>";
+echo "<script>$('#visabilty').val(".$visibility.");</script>";
 		?>
-		<label for="visabilty">Visabilty</label>
+		<label for="visibility">Visibility</label>
 		<br>
 		<label for="unlisted">Unlisted</label>
-		<input type="checkbox" id="unlisted" name="unlisted" <?php
-		//check db if unlisted if so:
-		echo 'checked';
+		<input type="checkbox" id="unlisted" name="unlisted"
+		<?php
+if ($unlisted == 1){
+	echo 'checked';
+}
 		?>>
 		<hr>
 		<h3>Element Options</h3>

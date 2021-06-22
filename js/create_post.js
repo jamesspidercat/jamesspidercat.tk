@@ -1,5 +1,13 @@
 var elements_count = 0, selected_element = "", to_delete = [];
-function create_element(type){
+function create_element(type,values){
+	element_values = [];
+	if (values === undefined)
+	{
+		//file_width, file, width, text, align, db_id
+		element_values = ["100","","3","","start",""];
+	}else{
+		element_values = values;
+	}
 	elements_count++;
 	var new_element = document.createElement("div");
 	document.getElementById("post-elements").appendChild(new_element);
@@ -20,7 +28,7 @@ function create_element(type){
 function save(){
 	save_element();
 	to_delete = JSON.stringify(to_delete);
-	visability = document.getElementById('visability').value;
+	visibility = document.getElementById('visibility').value;
 	if (document.getElementById('unlisted').checked){
 		unlisted = true;
 	}else unlisted = false;
@@ -29,7 +37,7 @@ function save(){
 	$.post("update_user.php", {
 		//all vars sent here to php
 		to_delete : to_delete,
-		visability : visability,
+		visibility : visibility,
 		unlisted : unlisted
 	},function(data){
 		if (data == 'success'){
