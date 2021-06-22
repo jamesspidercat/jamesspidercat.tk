@@ -7,7 +7,7 @@ $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
 <?php
-//to do: make elements look better, save to DB, load edit from DB, delete post button, post title edit
+//to do: make elements look better, save to DB, load edit from DB, delete post button
 
 //text posts have text shown in element box, images are shown in element box (with a maxwidth)
 //audio and video and image show file name & text
@@ -52,8 +52,8 @@ WHERE
 	}
 	//create elements here
 }else{
-	$post_title = "Post Title";
 	//if no this is new post, create new post in db then take user to ?edit=[new post id]
+	$post_title = "Post Title";
 	$statement = $link->prepare("INSERT INTO `blog_posts`(`author`, `title`) VALUES (?, ?)");
 	$statement->bind_param("is",$id,$post_title);
 	$statement->execute();
@@ -70,6 +70,10 @@ WHERE
 }
 ?>
 <div class="container row">
+	<input type="text" id="title" placeholder="Post Title" style="height: 48px; font-size: 36px; margin: 5px;" value=
+	<?php
+	echo '"'.$title.'"';
+	?>>
 	<section class="col-8" id="post-elements">
 	</section>
 	<aside class="col-4 seperator text-white">

@@ -29,16 +29,20 @@ function save(){
 	save_element();
 	to_delete = JSON.stringify(to_delete);
 	visibility = document.getElementById('visibility').value;
+	title = document.getElementById('title').value;
 	if (document.getElementById('unlisted').checked){
 		unlisted = true;
 	}else unlisted = false;
 	//'position','text','file_width','file','width','type','align','db_id'
 	elements = [['position','text','file_width','file','width','type','align','db_id']];
+	elements = JSON.stringify(elements);
 	$.post("update_user.php", {
 		//all vars sent here to php
 		to_delete : to_delete,
 		visibility : visibility,
-		unlisted : unlisted
+		unlisted : unlisted,
+		elements : elements,
+		title : title
 	},function(data){
 		if (data == 'success'){
 			if(!alert("Successfully saved post")){window.location.reload();}
