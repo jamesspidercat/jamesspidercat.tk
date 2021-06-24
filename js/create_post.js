@@ -1,4 +1,5 @@
 var elements_count = 0, selected_element = "", to_delete = [];
+
 function create_element(type,values){
 	element_values = [];
 	if (values === undefined)
@@ -79,6 +80,8 @@ function edit_element(element){
 	document.getElementById("text").setAttribute("disabled","true");
 	document.getElementById("align").setAttribute("disabled","true");
 	document.getElementById("delete").setAttribute("disabled","true");
+	document.getElementById("move_up").setAttribute("disabled","true");
+	document.getElementById("move_down").setAttribute("disabled","true");
 	//get data from selected element and put in input boxes
 	document.getElementById("file_width").value = element.dataset.file_width;
 	document.getElementById("file_name").innerHTML = element.dataset.file;
@@ -120,6 +123,8 @@ function edit_element(element){
 			document.getElementById("text").removeAttribute("disabled");
 			document.getElementById("align").removeAttribute("disabled");
 			document.getElementById("delete").removeAttribute("disabled");
+			document.getElementById("move_up").removeAttribute("disabled");
+			document.getElementById("move_down").removeAttribute("disabled");
 			break;
 	}
 }
@@ -143,11 +148,25 @@ function save_element(){
 		element.dataset.align = document.getElementById("align").value;
 	}
 }
-
+function delete_post(){
+	if (confirm("Are you sure you want to delete this post?")){
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var id = url.searchParams.get("edit");
+		$.post("delete_post.php", {
+			post_id : id
+		},function(data){
+			if (data == 'success'){
+				if(!alert("Successfully deleted post")){window.location = 'blog.php';}
+			}else{
+				if(!alert("Failed to delete post")){window.location.reload();}
+			}
+		});
+	}
+}
 
 
 $(document).ready(function(){
-
     $("#but_upload").click(function(){
 
         var fd = new FormData();
@@ -156,31 +175,31 @@ $(document).ready(function(){
         // Check file selected or not
         if(files.length > 0 ){
            fd.append('file',files[0]);
-		   var url_string = window.location.href;
-		   var url = new URL(url_string);
-		   var id = url.searchParams.get("id");
-		   var element = document.getElementById(selected_element);
-           $.ajax({
-              url: 'upload_image.php?id='+id+'&type='+element.dataset.type,
-              type: 'post',
-              data: fd,
-              contentType: false,
-              processData: false,
-              success: function(response){
-                 if(response != 0){
-					//success
-					document.getElementById('file_name').innerHTML = response;
-                 }else{
-                    alert('file not uploaded');
-					var element = document.getElementById(selected_element);
-					element.dataset.file = '';
-                 }
-              },
-           });
-        }else{
-           alert("Please select a file.");
-		   var element = document.getElementById(selected_element);
-		   element.dataset.file = '';
+			var element = document.getElementById(selected_element);
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var id = url.searchParams.get("edit");
+			$.ajax({
+				url: 'upload_image.php?id='+id+'&type='+element.dataset.type,
+				type: 'post',
+				data: fd,
+				contentType: false,
+				processData: false,
+				success: function(response){
+					if(response != 0){
+						//success
+						document.getElementById('file_name').innerHTML = response;
+					}else{
+						alert('file not uploaded');
+						var element = document.getElementById(selected_element);
+						element.dataset.file = '';
+					}
+				},
+			});
+		}else{
+        	alert("Please select a file.");
+			var element = document.getElementById(selected_element);
+			element.dataset.file = '';
         }
     });
 });
