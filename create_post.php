@@ -8,14 +8,14 @@ require_once('page_top.php');
 ?>
 <?php
 //to do: make elements look better, save to DB, load edit from DB, delete post button
-
+//on blog post page add edit button if you are post author
 //text posts have text shown in element box, images are shown in element box (with a maxwidth)
 //audio and video and image show file name & text
 //add delete post button
 
 //check if .php?edit=[DB_id]
 if (isset($_GET["edit"])){
-	// if yes get existing elements from database & print js code to create them
+	//if yes get existing elements from database & print js code to create them
 	$statement = $link->prepare("SELECT
     `post_id`,
     `author`,
@@ -156,13 +156,17 @@ if ($unlisted == 1){
 			<br>
 			<!-- Move -->
 			<div class="form-group">
-				<button class="btn btn-primary"onclick="moveChoiceTo(-1)">Move Up</button>
-				<button class="btn btn-primary" onclick="moveChoiceTo(1)">Move Down</button>
+				<button class="btn btn-primary disable" id="move_down" disabled onclick="moveChoiceTo(-1)">Move Up</button>
+				<button class="btn btn-primary disable" id="move_up" disabled onclick="moveChoiceTo(1)">Move Down</button>
 			</div>
 			<!-- delete -->
 			<br>
 			<div class="form-group">
 			<button class="btn btn-danger disable" type="submit" disabled id="delete" onclick="delete_element()">Delete Element</button>
+			</div>
+			<br>
+			<div class="form-group">
+			<button class="btn btn-danger" type="submit" onclick="delete_post()">Delete Post</button>
 			</div>
 		</div>
 	</aside>
