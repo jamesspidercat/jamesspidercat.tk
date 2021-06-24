@@ -50,6 +50,10 @@ WHERE
 		die();
 	}
 	//create elements here
+	//fetch all elements with post id
+	//cycle through them setting up values var
+	// then echo script containing create_element(type,values){
+	//
 }else{
 	//if no this is new post, create new post in db then take user to ?edit=[new post id]
 	$post_title = "Post Title";

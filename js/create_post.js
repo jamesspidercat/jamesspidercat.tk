@@ -12,16 +12,16 @@ function create_element(type,values){
 	elements_count++;
 	var new_element = document.createElement("div");
 	document.getElementById("post-elements").appendChild(new_element);
-	new_element.setAttribute("data-file_width","100");
-	new_element.setAttribute("data-file","");
-	new_element.setAttribute("data-width","3");
+	new_element.setAttribute("data-file_width",element_values[0]);
+	new_element.setAttribute("data-file",element_values[1]);
+	new_element.setAttribute("data-width",element_values[2]);
 	new_element.setAttribute("data-type",type);
-	new_element.setAttribute("data-text","");
-	new_element.setAttribute("data-align","start");
+	new_element.setAttribute("data-text",element_values[3]);
+	new_element.setAttribute("data-align",element_values[4]);
 	new_element.setAttribute("class","post-element");
 	new_element.setAttribute("onclick","edit_element(this)");
 	new_element.setAttribute("id","element"+elements_count);
-	new_element.setAttribute("data-db_id","");
+	new_element.setAttribute("data-db_id",element_values[5]);
 	new_element.innerHTML = new_element.id;
 }
 
