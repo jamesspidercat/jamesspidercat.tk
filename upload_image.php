@@ -30,7 +30,7 @@ if(isset($_FILES['file']['name'])){
    if(in_array(strtolower($imageFileType), $valid_extensions)) {
       // Upload file
       if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
-         $response = $location;
+         $response = $filename;
       }
    }
 
