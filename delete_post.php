@@ -18,6 +18,7 @@ if( $statement) {
     echo "failed";
     die();
 }
+//delete files from post
 $dirname = 'blog/'.$_POST['post_id'];
 array_map('unlink', glob("$dirname/*.*"));
 rmdir($dirname);
