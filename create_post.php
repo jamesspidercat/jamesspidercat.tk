@@ -7,10 +7,6 @@ $jsPaths = array('js/main.js','js/create_post.js');
 require_once('page_top.php');
 ?>
 <?php
-//to do: make elements look better, save to DB, load edit from DB
-//on blog post page add edit button if you are post author
-//text posts have text shown in element box, images are shown in element box (with a maxwidth)
-//audio, video and image show file name & text
 
 //check if .php?edit=[DB_id]
 if (isset($_GET["edit"])){
@@ -50,10 +46,23 @@ WHERE
 		die();
 	}
 	//create elements here
+	$statement = $link->prepare("SELECT
+    *
+FROM
+    `post_content`
+WHERE
+    `post_id` = ?
+ORDER BY
+    `post_order` ASC");
+	if( $statement) {
+		$statement->bind_param("i",$_GET['edit']);
+		$statement->execute();
+	}else{
+		echo "failed";
+		die();
+	}
+	db_bind_array($statement, $result);
 	//fetch all elements with post id
-	//cycle through them setting up values var
-	// then echo script containing create_element(type,values){
-	//
 }else{
 	//if no this is new post, create new post in db then take user to ?edit=[new post id]
 	$post_title = "Post Title";
@@ -77,9 +86,9 @@ WHERE
 	<?php
 	echo '"'.$title.'"';
 	?>>
-	<section class="col-8" id="post-elements">
+	<section class="col-8" id="post-elements" style="min-height: 100px; height: 450px; overflow-y: scroll; resize: vertical;">
 	</section>
-	<aside class="col-4 seperator text-white">
+	<aside class="col-4 seperator text-white" style="min-height: 100px; height: 450px; overflow-y: scroll; resize: vertical;">
 		<h3>Post Options</h3>
 		<button class="btn btn-primary dropdown-toggle post-options" type="button" data-bs-toggle="dropdown">
 			Create Element
@@ -96,7 +105,7 @@ WHERE
 		</button>
 		<br>
 		<button class="btn btn-primary post-options" onclick="preview()">
-			Preview & Save
+			Save & Preview
 		</button>
 		<br>
 		
@@ -109,7 +118,7 @@ WHERE
 			<option value="5">Author</option>
 		</select>
 		<?php
-echo "<script>$('#visabilty').val(".$visibility.");</script>";
+echo "<script>$('#visibility').val(".$visibility.");</script>";
 		?>
 		<label for="visibility">Visibility</label>
 		<br>
@@ -175,5 +184,12 @@ if ($unlisted == 1){
 	</aside>
 </div>
 <?php
+//create any elements fetched from DB
+echo '<script>';
+while ($statement->fetch()){//file_width, file, width, text, align, content_id
+	echo 'create_element("'.$result['type'].'",["'.$result['file_width'].'","'.$result['file'].'","'.$result['width'].'","'.$result['text'].'","'.$result['align'].'","'.$result['content_id'].'"]);';
+}
+echo '</script>';
+$statement->close();
 include ("page_bottom.php");
 ?>

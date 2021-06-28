@@ -19,10 +19,14 @@ function create_element(type,values){
 	new_element.setAttribute("data-text",element_values[3]);
 	new_element.setAttribute("data-align",element_values[4]);
 	new_element.setAttribute("class","post-element");
+	new_element.className += ' text-white';
 	new_element.setAttribute("onclick","edit_element(this)");
 	new_element.setAttribute("id","element"+elements_count);
 	new_element.setAttribute("data-db_id",element_values[5]);
-	new_element.innerHTML = new_element.id;
+	new_element.innerHTML = new_element.id+' Type: '+new_element.dataset.type+'<br>Text: '+new_element.dataset.text;
+	if (new_element.dataset.file != ""){
+		new_element.innerHTML += '<br>File: '+new_element.dataset.file;
+	}
 }
 
 
@@ -54,14 +58,6 @@ function save(){
 			element.dataset.align,
 			element.dataset.db_id
 		]
-		/*elements[i][0] = index;//position
-		elements[i][1] = element.dataset.text;//text
-		elements[i][2] = element.dataset.file_width;//file_width
-		elements[i][3] = element.dataset.file;//file
-		elements[i][4] = element.dataset.width;//width
-		elements[i][5] = element.dataset.type;//type
-		elements[i][6] = element.dataset.align;//align
-		elements[i][7] = element.dataset.db_id;//db_id*/
 		elements[i] = temp_array;
 	}
 	console.log(elements);
@@ -88,6 +84,10 @@ function preview(){
 	//save first
 	save();
 	//then open preview in new tab
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var id = url.searchParams.get("edit");
+	window.open('blog_post.php?post='+id, '_blank').focus();
 }
 function moveChoiceTo(direction) {
     var span = document.getElementById(selected_element),
@@ -174,6 +174,8 @@ function save_element(){
 		element.dataset.file = document.getElementById("file_name").innerHTML;
 		element.dataset.text = document.getElementById("text").value;
 		element.dataset.align = document.getElementById("align").value;
+		//show content in element
+		element.innerHTML = element.dataset.text;
 	}
 }
 function delete_post(){

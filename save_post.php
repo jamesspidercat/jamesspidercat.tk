@@ -28,6 +28,9 @@ if( $statement) {
     $statement->bind_param("iiisi",$id,$_POST['visibility'],$_POST['unlisted'],$_POST['title'],$_POST['post_id']);
     $statement->execute();
     $statement->close();
+}else{
+    echo "failed";
+    die();
 }
 foreach($elements as $element){//save changes to post content
     //'position','text','file_width','file','width','type','align','db_id'
@@ -50,6 +53,9 @@ foreach($elements as $element){//save changes to post content
             $element[1],$element[3],$element[2],$element[6],$element[7],$_POST['post_id']);
             $statement->execute();
             $statement->close();
+        }else{
+            echo "failed";
+            die();
         }
     }else{
         //insert
@@ -71,6 +77,9 @@ foreach($elements as $element){//save changes to post content
             $element[1],$element[3],$element[2],$element[6]);
             $statement->execute();
             $statement->close();
+        }else{
+            echo "failed";
+            die();
         }
     }
 }
