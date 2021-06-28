@@ -71,9 +71,12 @@ print '
     </h1>
     <p>
         Published '.date_format($post_date,"l F d Y h:i:sa").'
-        <span title="'.$post_username.'">By '.$post_author.'</span>
-    </p>
-    </div>
+        <span title="'.$post_username.'">By '.$post_author.' </span>';
+if ($author_id == $id){
+print '<small><a href="create_post.php?edit='.$post_id.'">Edit Post</a></small>';
+}
+print '</p>
+</div>
 <div class="row">';//open first row
 while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
     $row_col += $result['width'];
