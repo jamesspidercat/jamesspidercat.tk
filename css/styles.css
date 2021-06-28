@@ -198,19 +198,22 @@ header{
 }
 html{
     background-image: url(../imgs/bookshelf.jpg);
+    height: 100%;
 }
 body{
     margin: auto;
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: rgba(64, 64, 64, 0.8);
-    height: 100%;
     border: 6px solid rgba(255, 255, 255, 0.9);
     border-radius: 40px;
 }
 @media only screen and (min-width: 768px) {
     body {
       width: 80%;
+    }
+    .seperator{
+        border-left: 1px solid white;
     }
   }
 footer{
@@ -252,4 +255,27 @@ footer a:hover, a.source:hover{
 
 @keyframes load{
     100% {opacity: 1;}
+}
+.post-border{
+    border: 3px solid white;
+    background-color: rgba(64, 64, 64, 0.8);
+}
+a.blog_link, a.blog_link:hover, a.blog_link:visited, a.blog_link:active {
+    color: inherit;
+    text-decoration: none;
+}
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.post-options {
+    margin: 3px;
+}
+.post-element {
+    padding: 50px;
+    border: black 3px solid;
+    margin: 13px;
+}
+#element-options {
+    padding-bottom: 15px;
 }

@@ -1,13 +1,17 @@
 <?php
-    include ("connect.php");
-    include ("book_of_the_day.php");
-    $query = "SELECT * FROM `book_data` ORDER BY `book_name`";
-    $results = mysqli_query( $link, $query );
-    //page_top.php var setup
-    $page_title = "Home | Sam's Books";
-    $curPage  = 'Home';
-    $jsPaths = array('js/main.js');
-    require_once('page_top.php');
+//page_top.php var setup
+$page_title = "Home | Sam's Books";
+$curPage  = 'Home';
+$require_login = '0';
+$jsPaths = array('js/main.js');
+require_once('page_top.php');
+
+if (isset($_GET['redirect'])){
+	print '<script>alert( "You do not have sufficient permissions to view this page" );</script>';
+}
+include ("book_of_the_day.php");
+$query = "SELECT * FROM `book_data` ORDER BY `book_name`";
+$results = mysqli_query( $link, $query );
 ?>
         <div class="row" data-masonry='{"percentPosition": true }'>
             <section class="col-12 col-sm-6"><!--Currently Reading-->

@@ -1,15 +1,16 @@
 <?php
-include("connect.php");
-$query = "SELECT * FROM `book_data` ORDER BY `book_name`";
-$results = mysqli_query( $link, $query );
 //page_top.php var setup
 $page_title = "Table | Sam's Books";
 $curPage  = "Table";
+$require_login = '0';
 $jsPaths = array('js/main.js','js/table.js');
 require_once('page_top.php');
+
+$query = "SELECT * FROM `book_data` ORDER BY `book_name`";
+$results = mysqli_query( $link, $query );
 ?>
             <div class="search_box">
-            <input type="text" placeholder="Search books..." onkeyup="search_table()" id="search_box">
+                <input type="text" placeholder="Search books..." onkeyup="search_table()" id="search_box">
             </div>
             <div class="dropDown">
                 <button type="button" class="dropDownButton" onclick="advancedSearchDropDown()">Advanced Options</button>
