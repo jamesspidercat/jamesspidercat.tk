@@ -175,7 +175,10 @@ function save_element(){
 		element.dataset.text = document.getElementById("text").value;
 		element.dataset.align = document.getElementById("align").value;
 		//show content in element
-		element.innerHTML = element.dataset.text;
+		element.innerHTML = element.id+' Type: '+element.dataset.type+'<br>Text: '+element.dataset.text;
+	if (element.dataset.file != ""){
+		element.innerHTML += '<br>File: '+element.dataset.file;
+	}
 	}
 }
 function delete_post(){
