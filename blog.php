@@ -33,10 +33,14 @@ ORDER BY
 LIMIT 1
 ) AS text
 FROM
-blog_posts
+    blog_posts
 INNER JOIN `users` ON blog_posts.author = users.user_id
 WHERE
-blog_posts.unlisted = 0");
+    blog_posts.unlisted = 0
+ORDER BY
+    blog_posts.`post_date`
+DESC
+");
 
 if( $statement) {
     $statement->execute();
