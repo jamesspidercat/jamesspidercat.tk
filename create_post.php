@@ -10,7 +10,7 @@ require_once('page_top.php');
 //to do: make elements look better, save to DB, load edit from DB
 //on blog post page add edit button if you are post author
 //text posts have text shown in element box, images are shown in element box (with a maxwidth)
-//audio and video and image show file name & text
+//audio, video and image show file name & text
 
 //check if .php?edit=[DB_id]
 if (isset($_GET["edit"])){
@@ -100,7 +100,7 @@ WHERE
 		</button>
 		<br>
 		
-		<select name="visibility" id="visabilty" class="btn btn-primary post-options">
+		<select name="visibility" id="visibility" class="btn btn-primary post-options">
 			<option value="0">All</option>
 			<option value="1">User</option>
 			<option value="2">Vip</option>
