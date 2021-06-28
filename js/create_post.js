@@ -34,21 +34,51 @@ function save(){
 	if (document.getElementById('unlisted').checked){
 		unlisted = true;
 	}else unlisted = false;
-	//'position','text','file_width','file','width','type','align','db_id'
-	elements = [['position','text','file_width','file','width','type','align','db_id']];
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var id = url.searchParams.get("edit");
+	elements = [];
+	var all_elements = document.getElementsByClassName("post-element");
+	console.log(all_elements);
+	for (var i = 0; i < all_elements.length; i++){
+		element = all_elements[i];
+		parent = element.parentNode;
+		var index = Array.prototype.indexOf.call(parent.children, element);//get location of child
+		//'position','text','file_width','file','width','type','align','db_id'
+		temp_array = [index,
+			element.dataset.text,
+			element.dataset.file_width,
+			element.dataset.file,
+			element.dataset.width,
+			element.dataset.type,
+			element.dataset.align,
+			element.dataset.db_id
+		]
+		/*elements[i][0] = index;//position
+		elements[i][1] = element.dataset.text;//text
+		elements[i][2] = element.dataset.file_width;//file_width
+		elements[i][3] = element.dataset.file;//file
+		elements[i][4] = element.dataset.width;//width
+		elements[i][5] = element.dataset.type;//type
+		elements[i][6] = element.dataset.align;//align
+		elements[i][7] = element.dataset.db_id;//db_id*/
+		elements[i] = temp_array;
+	}
+	console.log(elements);
 	elements = JSON.stringify(elements);
-	$.post("update_user.php", {
+	$.post("save_post.php", {
 		//all vars sent here to php
 		to_delete : to_delete,
 		visibility : visibility,
 		unlisted : unlisted,
 		elements : elements,
-		title : title
+		title : title,
+		post_id : id
 	},function(data){
 		if (data == 'success'){
 			if(!alert("Successfully saved post")){window.location.reload();}
 		}else{
-			if(!alert("Failed to save changes")){window.location.reload();}
+			if(!alert("Failed to save changes"+data)){window.location.reload();}
 		}
 	});
 }
@@ -96,7 +126,6 @@ function edit_element(element){
 	x = document.querySelectorAll(".disable");
 	for (i = 0; i < x.length; i++) {
 		x[i].setAttribute("disabled","");
-		//x[i].removeAttribute("disabled")
 	}
 	switch (element.dataset.type){
 		case 'image':
@@ -134,7 +163,6 @@ function delete_element(){
 	if ('db_id' in element.dataset){
 		to_delete.push(element.dataset.db_id);
 	}
-
 	element.parentNode.removeChild(element);
 	selected_element = "";
 }
