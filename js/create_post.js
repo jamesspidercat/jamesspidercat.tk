@@ -60,7 +60,6 @@ function save(){
 		]
 		elements[i] = temp_array;
 	}
-	console.log(elements);
 	elements = JSON.stringify(elements);
 	$.post("save_post.php", {
 		//all vars sent here to php
@@ -74,7 +73,7 @@ function save(){
 		if (data == 'success'){
 			if(!alert("Successfully saved post")){window.location.reload();}
 		}else{
-			if(!alert("Failed to save changes"+data)){window.location.reload();}
+			alert("Failed to save changes"+data)
 		}
 	});
 }
