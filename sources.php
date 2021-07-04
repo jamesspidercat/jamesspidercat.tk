@@ -21,6 +21,8 @@ require_once('page_top.php');
             <br>
             <a class="source" href="https://datatables.net/faqs/index#Licensing"><img src="imgs/datatables.png" height="100" alt=" DataTables Logo" />This site uses DataTables</a>
             <br>
+            <a class="source" href="https://getbootstrap.com/docs/4.0/about/license/"><img src="imgs/bootstrap_logo.jpg" height="100" alt=" Bootstrap Logo" />This site uses Bootstrap</a>
+            <br>
             <label class="switch-light switch-candy">
                 <input type="checkbox" id="format_andor" >
                 <strong class="large-4 columns"></strong>
