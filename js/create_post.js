@@ -36,8 +36,8 @@ function save(){
 	visibility = document.getElementById('visibility').value;
 	title = document.getElementById('title').value;
 	if (document.getElementById('unlisted').checked){
-		unlisted = true;
-	}else unlisted = false;
+		unlisted = 1;
+	}else unlisted = 0;
 	var url_string = window.location.href;
 	var url = new URL(url_string);
 	var id = url.searchParams.get("edit");
