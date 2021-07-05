@@ -7,14 +7,14 @@ $jsPaths = array('js/main.js','js/no_resubmit.js');
 require_once('page_top.php');
 ?>
 		<div class="row" style="margin-left: 10px;">
-			<form class="col-9" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+			<form class="col-9" name="contactform" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 				<div class="form-group">
 					<label for="name" class="form-label">Name</label>
 					<input type="text" class="form-control" id="name" name="name" placeholder="Name" required maxlength="50">
 				</div>
 				<div class="form-group">
 						<label for="email" class="form-label">Email</label>
-						<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength=80">
+						<input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required maxlength="80">
 				</div>
 				<div class="form-group">
 					<label for="contact_reason" class="form-label">Contact Reason</label>
@@ -28,7 +28,7 @@ require_once('page_top.php');
 					</select>
 				</div>
 				<div class="form-group">
-					<label for=comments" class="form-label">Comments</label>
+					<label for="comments" class="form-label">Comments</label>
 					<textarea style="margin-bottom: 10px;height: 200px;" class="form-control" id="comments" name="comments" required></textarea>
 				</div>
 				<div class="form-group">

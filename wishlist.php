@@ -66,7 +66,6 @@ $results = mysqli_query( $link, $query );
                 </div>
             </div>
             <div id="loader"></div>
-        </div>
         <table id="main">
             <thead>
                 <tr><th>Title</th><th>Author</th><th>Series</th><th>Book Type</th><th>Priority</th><th>Have Read</th><th>Notes</th></tr>
