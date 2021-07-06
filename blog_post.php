@@ -91,7 +91,7 @@ while ($statement->fetch()) {//THIS IS WHERE COOL STUFF GETS PRINTED!!!
             break;
         case "image":
             print '<figure class="figure">
-            <img class="figure-img img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'%">
+            <img class="figure-img img-fluid" src="blog/'.$post_id.'/'.$result['file'].'" width="'.$result['file_width'].'%" alt="'.$result['file'].'">
             <figcaption class="figure-caption text-white">'.$result['text'].'</figcaption>
         </figure>';
             break;

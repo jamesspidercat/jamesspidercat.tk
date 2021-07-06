@@ -63,7 +63,7 @@ while ($statement->fetch()) {
     print '<a href="blog_post.php?post='.$result['post_id'].'" class="blog_link">
     <div class="row m-5 post-border">
         <aside class="col-4 p-0 order-last text-end">
-            <img src="blog/'.$result['post_id'].'/'.$result['image'].'" class="img-fluid">
+            <img src="blog/'.$result['post_id'].'/'.$result['image'].'" class="img-fluid" alt="'.$result['image'].'">
         </aside>
         <div class="col-8 text-white order-first">
             <h1>'.$result['title'].'</h1>
