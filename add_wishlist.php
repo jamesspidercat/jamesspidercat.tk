@@ -45,7 +45,7 @@ function setThreeNumberDecimal(event) {
         </div>
         <div class="form-group">
             <label for="want" class="form-label">Want (1-5)*</label>
-            <input id="want" type="number" class="form-control" name="want" min="0" max="5" required>
+            <input id="want" type="number" class="form-control" name="want" min="1" max="5" required>
         </div>
         <div class="form-group">
             <label for="have_read" class="form-label">Have Read Before*</label>
