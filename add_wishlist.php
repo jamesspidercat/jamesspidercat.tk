@@ -14,7 +14,7 @@ function setThreeNumberDecimal(event) {
 }
 </script>
 <div class="row" style="margin-left: 10px; margin-right: 10px;">
-    <form name="add_book" class="col-12" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+    <form name="add_book" class="col-12" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <h3>Add book to wishlist</h3>
         <div class="form-group">
             <label for="book_name" class="form-label">Title*</label> 
@@ -26,7 +26,7 @@ function setThreeNumberDecimal(event) {
         </div>
         <div class="form-group">
             <label for="series_number" class="form-label">Series Number</label>
-            <input id="series_number" type="number" class="form-control" placeholder="0.000" name="series_number" max='9999999.999' min='-9999999.999' step="0.001"onchange="
+            <input id="series_number" type="number" class="form-control" placeholder="0.000" name="series_number" max='9999999.999' min='-9999999.999' step="0.001" onchange="
             setThreeNumberDecimal()">
         </div>
         <div class="form-group">
@@ -50,6 +50,7 @@ function setThreeNumberDecimal(event) {
         <div class="form-group">
             <label for="have_read" class="form-label">Have Read Before*</label>
             <select class="form-select" id="have_read" name="have_read" required>
+                <option value="" disabled>Choose...</option>
                 <option value="1">True</option>
                 <option value="0" selected>False</option>
 			</select>

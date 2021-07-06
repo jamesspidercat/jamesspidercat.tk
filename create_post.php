@@ -153,17 +153,17 @@ if ($unlisted == 1){
 			</div>
 			<!-- add file -->
 			<div class="form-group">
-				<form method="post" action="" enctype="multipart/form-data" id="upload_image">
+				<form method="post" enctype="multipart/form-data" id="upload_image">
 						<label for="file" class="form-label">File</label>
 						<p id="file_name"></p>
 						<input type="file" id="file" name="file" class="form-control disable" disabled/>
-						<input type="button" class="btn btn-primary" value="Upload File" class="form-control disable" id="but_upload" style="margin-top: 3px;" disabled>
+						<input type="button" class="btn btn-primary form-control disable" value="Upload File" id="but_upload" style="margin-top: 3px;" disabled>
 				</form>
 			</div>
 			<!-- file width -->
 			<div class="form-group">
 				<label for="file_width" class="form-label">Image/Video Width %</label>
-				<input type="number" class="form-control disable" id="file_width" name="file_width" disabled minlength="0" maxlength="200">
+				<input type="number" class="form-control disable" id="file_width" name="file_width" disabled min="0" max="200">
 			</div>
 			<br>
 			<!-- Move -->

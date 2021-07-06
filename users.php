@@ -78,5 +78,3 @@ while ($statement->fetch()) {
 <?php
 include ("page_bottom.php");
 ?>
-            </tbody>
-        </table>

@@ -14,15 +14,15 @@ if ($permissions != 0){
 }
 ?>
 <div class="row" style="margin-left: 10px; padding: 10px;">
-    <form name="login" method="post" class="col-12 col-md-6" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+    <form name="login" method="post" class="col-12 col-md-6" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <h3>Login</h3>
         <div class="form-group">
-            <label for="username" class="form-label">Username</label>
-            <input name="username" class="form-control" type="text" minlength="3" maxlength="30" required>
+            <label for="login_username" class="form-label">Username</label>
+            <input id="login_username" name="username" class="form-control" type="text" minlength="3" maxlength="30" required>
         </div>
         <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <input name="password" class="form-control" type="password" minlength="3" maxlength="30" required>
+            <label for="login_password" class="form-label">Password</label>
+            <input id="login_password" name="password" class="form-control" type="password" minlength="3" maxlength="30" required>
         </div>
         <!--<div class="form-group">
             <label><input type="checkbox"> Remember me</label>
@@ -34,19 +34,19 @@ if ($permissions != 0){
         <p id="login_attempt"></p>
     </form>
 
-    <form name="register" class="col-12 col-md-6 seperator" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" validate>
+    <form name="register" class="col-12 col-md-6 seperator" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <h3>Sign Up</h3>
         <div class="form-group">
-            <label for="name" class="form-label">Name</label> 
-            <input type="text" class="form-control" name="name" maxlength="50" required minlength="2">
+            <label for="signup_name" class="form-label">Name</label> 
+            <input id="signup_name" type="text" class="form-control" name="name" maxlength="50" required minlength="2">
         </div>
         <div class="form-group">
-            <label for="username" class="form-label">Username</label> 
-            <input type="text" class="form-control" name="username" maxlength="30" required minlength="3">
+            <label for="signup_username" class="form-label">Username</label> 
+            <input id="signup_username" type="text" class="form-control" name="username" maxlength="30" required minlength="3">
         </div>
         <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" maxlength="30" required minlength="3">
+            <label for="signup_password" class="form-label">Password</label>
+            <input id="signup_password" type="password" class="form-control" name="password" maxlength="30" required minlength="3">
             <small class="form-text text-white">Make sure to remember this! There is currently no way to recover your password</small>
         </div>
         <br>
