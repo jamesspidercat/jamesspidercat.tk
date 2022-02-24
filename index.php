@@ -21,7 +21,7 @@ $results = mysqli_query( $link, $query );
 
             <section class="col-12 col-sm-6"><!--Reading challenge-->
                 <div id="gr_challenge_11621" class="gr_custom_container_1588895837">
-                    <div id="gr_challenge_progress_body_11650">
+                    <div id="gr_challenge_progress_body_11636">
                     </div>
                     <script src="https://www.goodreads.com/user_challenges/widget/68562138-sam?challenge_id=11636&v=2"></script>
                 </div>
