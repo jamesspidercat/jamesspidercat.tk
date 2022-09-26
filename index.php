@@ -43,7 +43,7 @@ $results = mysqli_query( $link, $query );
 
             <section class="col-12 col-sm-6"><!--Recent Updates -->
                 <div id="gr_updates_widget">
-                    <iframe id="the_iframe" src="https://goodreads.com/widgets/user_update_widget?height=400&num_updates=50&user=68562138&width=-1" height="330"></iframe>
+                    <iframe id="the_iframe" src="https://goodreads.com/widgets/user_update_widget?height=400&num_updates=50&user=68562138&width=-1" width="100%" height="330px"></iframe>
                     
                     <div id="gr_footer">
                         <a href="https://www.goodreads.com/">
