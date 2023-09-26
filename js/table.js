@@ -168,6 +168,15 @@ function advanced_search_owned_in(y){
         }
     }
 }
+function advanced_search_show_collected(){
+    var table = $('#main').DataTable();
+    var checkBox = document.getElementById('show_collected');
+    if (checkBox.checked == true){//shows things with info in the collected in col
+        table.column(4).search( '',false,true).draw();
+    }else{//hides anything where the collected in col is not empty
+        table.column(4).search( '^$',true,false).draw();
+    }
+}
 //Search
 function search_table(){
     var search = document.getElementById("search_box").value;
@@ -182,6 +191,7 @@ function reset_filters(){
     cbs.forEach((cb) => {
         cb.checked = false;
     });
+    document.getElementById('show_collected').checked = true;
     table.columns([0,1,2,3,4,5,6,7,8,9,10]).search("",false,true).draw();//remove search
     showRows();
     document.getElementById("search_box").value = '';//remove text from search box

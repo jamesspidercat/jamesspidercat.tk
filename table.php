@@ -44,11 +44,12 @@ $results = mysqli_query( $link, $query );
                             </tr>
                             <tr>
                                 <td><input type="checkbox" onclick="advanced_search_book_type('other')" id="book_type_other">Other</td>
-                                <td></td>
+                                <th>Collected</th>
                                 <td><input type="checkbox" onclick="advanced_search_owned_in('box_set')" id="owned_in_box_set">Box Set</td>
                             </tr>
                             <tr>
-                                <th colspan="2">Settings</th>
+                                <th>Settings</th>
+                                <td><input type="checkbox" onclick="advanced_search_show_collected()" id="show_collected" checked>Include</td>
                                 <td><input type="checkbox" onclick="advanced_search_owned_in('kindle')" id="owned_in_kindle">Kindle</td>
                             </tr>
                             <tr>
