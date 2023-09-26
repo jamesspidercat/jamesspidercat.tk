@@ -8,7 +8,7 @@ $(document).ready( function () {//create datatables table
         },
         "dom": 'lrtip',
         "columnDefs": [
-            {"visible": false, "targets": [8,9,10]}
+            {"visible": false, "targets": [8,9,10,11]}
         ],
         destroy: true,
         "rowId": "id",
@@ -171,10 +171,10 @@ function advanced_search_owned_in(y){
 function advanced_search_show_collected(){
     var table = $('#main').DataTable();
     var checkBox = document.getElementById('show_collected');
-    if (checkBox.checked == true){//shows things with info in the collected in col
-        table.column(4).search( '',false,true).draw();
-    }else{//hides anything where the collected in col is not empty
-        table.column(4).search( '^$',true,false).draw();
+    if (checkBox.checked == true){//shows things that are only owned through something else
+        table.column(11).search( '',true,false).draw();
+    }else{//hides anything where the hidden individual_item col is 0
+        table.column(11).search( '1',true,false).draw();
     }
 }
 //Search
@@ -192,7 +192,7 @@ function reset_filters(){
         cb.checked = false;
     });
     document.getElementById('show_collected').checked = true;
-    table.columns([0,1,2,3,4,5,6,7,8,9,10]).search("",false,true).draw();//remove search
+    table.columns([0,1,2,3,4,5,6,7,8,9,10,11]).search("",false,true).draw();//remove search
     showRows();
     document.getElementById("search_box").value = '';//remove text from search box
 }
