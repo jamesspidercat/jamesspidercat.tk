@@ -279,3 +279,6 @@ a.blog_link, a.blog_link:hover, a.blog_link:visited, a.blog_link:active {
 #element-options {
     padding-bottom: 15px;
 }
+#post_attempt{
+    color: white;
+}

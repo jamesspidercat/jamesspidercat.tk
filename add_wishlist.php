@@ -13,6 +13,7 @@ function setThreeNumberDecimal(event) {
     document.getElementById("series_number").value = number;
 }
 </script>
+<p id="post_attempt"></p>
 <div class="row" style="margin-left: 10px; margin-right: 10px;">
     <form name="add_book" class="col-12" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <h3>Add book to wishlist</h3>
@@ -63,7 +64,6 @@ function setThreeNumberDecimal(event) {
         <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary" value="submit">Add</button>
         </div>
-        <p id="post_attempt"></p>
     </form>
 </div>
 <?php
