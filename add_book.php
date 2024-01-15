@@ -33,6 +33,7 @@ function setThreeNumberDecimal(event) {
     document.getElementById("series_number").value = number;
 }
 </script>
+<p id="post_attempt"></p>
 <div class="row" style="margin-left: 10px; margin-right: 10px;">
     <form name="add_book" class="col-12" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <h3>Add book</h3>
@@ -82,7 +83,7 @@ function setThreeNumberDecimal(event) {
             <label class="form-label">Location Owned*</label>
             <br>
             <?php
-            $ownedlist = ['Paperback','Hardback','Floppy','Box_Set','Kindle','Comixology','Big_Finish','Humble_Bundle','Fanatical','Audible','Unbound','Other'];
+            $ownedlist = ['Paperback','Hardback','Floppy','Box_Set','Kindle','Comixology','Big_Finish','Humble_Bundle','Fanatical','Audible','Unbound','Cd','Other'];
             foreach($ownedlist as $i){
                 print '<input type="checkbox" id="'.$i.'" name="'.$i.'" value="'.$i.'" required>
                 <label for="'.$i.'" class="form-label">'.str_replace('_',' ',$i).' </label>';
@@ -98,7 +99,6 @@ function setThreeNumberDecimal(event) {
         <div class="form-group">
             <button type="submit" name="submit" class="btn btn-primary" value="submit">Add</button>
         </div>
-        <p id="post_attempt"></p>
     </form>
 </div>
 <?php
