@@ -111,6 +111,9 @@ $results = mysqli_query( $link, $query );
                                 <td style="vertical-align: top;"><input type="checkbox" onclick="advanced_search_owned_in('cd')" id="owned_in_cd">Cd</td>
                             </tr>
                             <tr>
+                                <td style="vertical-align: top;"><input type="checkbox" onclick="advanced_search_owned_in('marvel_unlimited')" id="owned_in_marvel_unlimited">Marvel Unlimited</td>
+                            </tr>
+                            <tr>
                                 <td style="vertical-align: top;"><input type="checkbox" onclick="advanced_search_owned_in('other')" id="owned_in_other">Other</td>
                             </tr>
                             <tr><td></td></tr><tr><td></td></tr>
